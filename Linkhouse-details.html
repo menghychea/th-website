@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TH Residence - Link House Details</title>
-    <base href="/th-website/"> 
+  
     <!-- Tailwind CSS CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts CDN link -->
@@ -224,11 +224,8 @@
 
     <script>
 
-         // Determine the base path for GitHub Pages
-        const pathSegments = window.location.pathname.split('/');
-        // Check if the repository name 'th-website' is in the path
-        const basename = pathSegments.includes('th-website') ? '/th-website/' : '/';
-        
+       
+
         // Dynamically set the current year in the footer
         document.getElementById('current-year-footer').textContent = new Date().getFullYear();
         AOS.init(); // Initialize AOS

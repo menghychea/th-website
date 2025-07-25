@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to TH Residence</title>
-    <!-- IMPORTANT: Base tag for GitHub Pages project sites -->
-    <!-- This tells the browser that all relative paths (like Image/profile.jpg or style.css) -->
-    <!-- should be resolved relative to the repository's root on GitHub Pages. -->
-    <base href="/th-website/"> 
+    <!-- Removed: <base href="/th-website/"> to simplify path resolution -->
 
     <!-- Tailwind CSS CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +20,7 @@
     <!-- AOS CSS CDN link -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Link to your main stylesheet (if it contains general styles you want here too) -->
+    <!-- Link to your main stylesheet -->
     <link rel="stylesheet" href="index.css"> 
     
    
@@ -49,8 +46,6 @@
 
     <script>
         // --- Animation Orchestration Script ---
-
-        
         
         // Helper function for delays
         const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -100,33 +95,14 @@
             // Wait for the fade-out transition to complete before redirecting
             await wait(1000); // This duration should match the 'transition-opacity' on #splash-screen
 
-            // 5. Redirect to Home_Page.html
-            window.location.href = basename + 'Home_Page.html'; 
+            // 5. Redirect to Home_Page.html using an absolute path relative to the repository root
+            // This is crucial for GitHub Pages Project Sites (e.g., your-username.github.io/th-website/)
+            window.location.href = '/th-website/Home_Page.html'; 
         };
 
-        // Function to update relative paths (important for GitHub Pages base href)
-        const pathSegments = window.location.pathname.split('/');
-        const basename = pathSegments.length > 1 && pathSegments[1] === 'th-residence-website' ? '/th-residence-website/' : '/';
-
-        function updateRelativePaths(selector, attribute) {
-            document.querySelectorAll(selector).forEach(element => {
-                let currentPath = element.getAttribute(attribute);
-                if (currentPath && !currentPath.startsWith('http') && !currentPath.startsWith('/') && !currentPath.startsWith('#')) {
-                    element.setAttribute(attribute, basename + currentPath);
-                } else if (currentPath && currentPath.startsWith('./')) {
-                    const cleanedPath = currentPath.substring(2);
-                    if (cleanedPath === "") {
-                        element.setAttribute(attribute, basename);
-                    } else {
-                        element.setAttribute(attribute, basename + cleanedPath);
-                    }
-                }
-            });
-        }
-
-        // Apply path updates to various elements
-        updateRelativePaths('link[rel="stylesheet"]', 'href');
-        updateRelativePaths('img', 'src');
+        // There's no longer a need for a dynamic basename or updateRelativePaths function
+        // because we're using direct relative paths.
+        // The previous updateRelativePaths function and basename variable are removed.
 
         // Start the animation automatically when the DOM is fully loaded
         window.addEventListener('DOMContentLoaded', startAutomaticAnimation);
