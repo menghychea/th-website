@@ -1,0 +1,375 @@
+/* Base styles for body */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll for the main body */
+    font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
+    background-color: #f3f4f6; /* Fallback background color */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    z-index: 0;
+}
+
+/* Full page background image with blur */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); /* Maintain original blur amount */
+    z-index: -1;
+}
+
+.section-padding {
+    padding-top: 4rem; /* py-16 */
+    padding-bottom: 4rem; /* py-16 */
+}
+.image-caption {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-600 */
+}
+/* Custom style for the floor plan and interior image containers */
+.plan-image-container, .interior-image-container {
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden; /* Ensures image fits */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+.plan-image-container img, .interior-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.25rem; /* rounded */
+    cursor: pointer; /* Indicate clickable */
+    transition: transform 0.2s ease-in-out; /* For hover effect */
+}
+.plan-image-container img:hover, .interior-image-container img:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(5px); /* Blurred background content */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+}
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ensures the whole image is visible */
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+/* Hide scrollbar when modal is open */
+body.modal-open {
+    overflow: hidden;
+    font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
+}
+
+/* Navigation buttons for modal */
+.modal-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1010; /* Above modal content */
+    transition: background-color 0.3s ease;
+}
+.modal-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-nav-button.left {
+    left: 1rem;
+}
+.modal-nav-button.right {
+    right: 1rem;
+}
+.modal-nav-button.hidden {
+    display: none;
+}
+
+/* Carousel specific styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    /* Responsive height for carousel */
+    height: 300px; /* Default for small screens */
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+@media (min-width: 640px) { /* sm breakpoint */
+    .carousel-container {
+        height: 400px;
+    }
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .carousel-container {
+        height: 500px;
+    }
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    .carousel-container {
+        height: 600px;
+    }
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Ensure inner container takes full height */
+}
+.carousel-slide {
+    flex: 0 0 100%; /* Each slide takes full width of its container */
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    display: flex; /* Ensure icon is centered */
+    align-items: center;
+    justify-content: center;
+}
+.carousel-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.carousel-nav-button.left {
+    left: 1rem;
+}
+.carousel-nav-button.right {
+    right: 1rem;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem; /* Changed space-x to gap for modern CSS */
+    z-index: 10;
+}
+.carousel-indicators .indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carousel-indicators .indicator-dot.active {
+    background-color: white;
+}
+
+/* OUR PROCESS - Bar Graph Styles */
+.bar-graph-container {
+    display: flex;
+    flex-direction: column; /* Stack bars vertically on small screens */
+    gap: 0.5rem; /* Space between bars */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%; /* Full width on small screens */
+    position: relative; /* Needed for hover effect on children */
+}
+
+.bar-background {
+    width: 100%; /* On mobile, takes full width of bar-item */
+    max-width: 150px; /* Added max-width for mobile bars */
+    height: 150px; /* Fixed height for the background of the bar */
+    background-color: #F5EFEB; /* Light background for the bar */
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden; /* Ensure fill stays within bounds */
+    display: flex;
+    align-items: flex-end; /* Align bar fill to the bottom */
+    margin-bottom: 0.5rem; /* Space between bar and labels */
+}
+
+.bar-fill {
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: height 1s ease-out; /* Smooth animation for bar fill */
+    position: relative;
+    height: var(--bar-height); /* This line was fixed */
+}
+
+/* Specific colors for each bar fill (enhanced two-color effect) */
+.foundation-bar .bar-fill,
+.wall-bar .bar-fill,
+.plumbing-bar .bar-fill,
+.electrical-bar .bar-fill {
+    background: #3C0008; /* Changed to a single solid color */
+}
+
+
+.bar-percentage-label {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 1.5rem;;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1; /* Ensure it's above the bar-fill */
+    color: white; /* All percentage labels will be white for contrast */
+}
+
+/* Show percentage on hover of the bar item */
+.bar-item:hover .bar-percentage-label {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bar-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+    color: #3c0008;
+}
+
+.bar-label-container .icon {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    color: #6b7280;
+}
+
+.bar-label-container .text-label {
+    font-size: 0.9rem;
+    text-align: center;
+
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Responsive adjustments for larger screens (horizontal layout) */
+@media (min-width: 768px) {
+    .bar-graph-container {
+        flex-direction: row; /* Arrange bars horizontally */
+        justify-content: space-around;
+        align-items: flex-start; /* Align bars to the bottom */
+        gap: 1rem; /* Adjust gap for horizontal layout */
+        height: 350px; /* Fixed height for the entire graph container on desktop */
+    }
+
+    .bar-item {
+        width: 25%; /* Each bar takes a quarter width, adjust as needed */
+        height: 100%; /* Take full height of container */
+    }
+
+    .bar-background {
+        height: 100%; /* Full height of the bar item */
+        width: 80px; /* Fixed width for the bar itself */
+        max-width: none; /* Remove max-width for desktop */
+        margin-bottom: 0; /* No bottom margin when horizontal */
+    }
+
+    .bar-fill {
+        font-size: 1.8rem;
+    }
+
+    .bar-percentage-label {
+        font-size: 1.8rem; /* Adjust font size for desktop */
+    }
+
+    .bar-label-container {
+        margin-top: 1rem; /* Space above labels */
+    }
+
+    .bar-label-container .icon {
+        font-size: 2.5rem;
+    }
+
+    .bar-label-container .text-label {
+        font-size: 1rem;
+    }
+}
+
+/* Styles for Navbar items (copied from user's provided style.css) */
+.icon-24 {
+    width: 24px;
+    height: 24px;
+}
+.group .icon-24 {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.group:hover .icon-24 {
+    transform: scale(1.1);
+    opacity: 0;
+    display: none;
+}
+.group span.text-lg {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.group:hover span.text-lg {
+    display: inline-block; /* Show on hover */
+    opacity: 1;
+}
+.group:hover a {
+    color: #3c0008; /* Hover color for the link text */
+}
+.group.active-link .icon-24 {
+    display: none;
+}
+.group.active-link span.text-lg {
+    display: inline-block;
+    opacity: 1;
+    color: #3c0008; /* Active link text color */
+}
+.group.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: #3C0008;
+    border-radius: 9999px;
+    opacity: 1;
+}

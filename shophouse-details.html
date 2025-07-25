@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH Residence - Shophouse Details</title>
+    <!-- Removed Base tag to rely on direct relative paths -->
+
+    <!-- Tailwind CSS CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS CDN link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Assuming style.css contains general styles and shophouse.css specific ones -->
+    <link rel="stylesheet" href="shophouse.css"> 
+   
+  
+</head>
+
+<body class="flex flex-col min-h-screen" style="padding-top: 72px;"> <!-- Added padding-top to account for fixed header -->
+
+    <!-- Navbar - Copied from home.html -->
+    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50">
+        <div class="flex items-center space-x-2 p-2 rounded-md">
+            <img src="Image/profile.jpg" alt="Company Logo" class="h-10 w-10 rounded-full">
+            <span class="text-2xl font-bold text-gray-800">TH RESIDENCE</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-[#3C0008] hover:text-[#3C0008] focus:outline-none focus:ring-2 focus:ring-[#3C0008] rounded-md p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Desktop and Mobile Menu -->
+        <ul id="nav-menu" class="w-full md:w-auto md:flex md:space-x-8 mt-4 md:mt-0 hidden md:block">
+            <!-- Nav items will be dynamically populated by JavaScript -->
+        </ul>
+    </nav>
+
+    <main class="flex-grow w-full py-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <section class="rounded-lg p-6 mb-12 text-center bg-white shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">SHOPHOUSE | ផ្ទះអាជីវកម្ម</h1>
+                
+                <!-- Land Size and House Size -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8 text-gray-700 text-lg font-medium mb-6">
+                    <span class="whitespace-nowrap">ទំហំដី | Land Size: <span class="font-bold">4.5m x 20m</span></span>
+                    <span class="whitespace-nowrap">ទំហំផ្ទះ | House Size: <span class="font-bold">4.5m x 14m</span></span>
+                </div>
+                
+                <!-- Shophouse Main Image Carousel -->
+                <div class="carousel-container mb-8">
+                    <div id="shophouse-carousel" class="carousel-inner">
+                        <!-- Slides will be injected by JavaScript -->
+                    </div>
+                    <!-- Carousel Navigation Buttons -->
+                    <button id="shophouse-prev" class="carousel-nav-button left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="shophouse-next" class="carousel-nav-button right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <!-- Carousel Indicators -->
+                    <div id="shophouse-indicators" class="carousel-indicators">
+                        <!-- Indicators will be injected by JavaScript -->
+                    </div>
+                </div>
+                <!-- End Shophouse Main Image Carousel -->
+                
+                <a href="https://momento360.com/e/uc/639996f7f2e4447eafd18d52c7c0d07e?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="inline-block bg-[#7E252C] text-white py-3 px-8 rounded-md hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold shadow-lg mt-4">View 3D Model</a>
+            </section>
+
+            <section class="mb-12 px-4 py-4 bg-gray-50 rounded-lg shadow-inner mt-8" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">FLOOR PLAN | ប្លង់ផ្ទះ</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="plan-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857740/Screenshot_2025-07-07_at_10.07.51_AM_hbp8oz.png" alt="Shophouse Ground Floor Plan" class="clickable-image" data-group="floorplans" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857740/Screenshot_2025-07-07_at_10.07.51_AM_hbp8oz.png">
+                        <p class="image-caption text-center mt-2">GROUND FLOOR</p>
+                    </div>
+                    <div class="plan-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857982/Screenshot_2025-07-07_at_10.11.34_AM_twbpez.png" alt="Shophouse 1st Floor Plan" class="clickable-image" data-group="floorplans" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857982/Screenshot_2025-07-07_at_10.11.34_AM_twbpez.png">
+                        <p class="image-caption text-center mt-2">1ST FLOOR</p>
+                    </div>
+                    <div class="plan-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857998/Screenshot_2025-07-07_at_10.12.02_AM_l6zeo1.png" alt="Shophouse 2nd Floor Plan" class="clickable-image" data-group="floorplans" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857998/Screenshot_2025-07-07_at_10.12.02_AM_l6zeo1.png">
+                        <p class="image-caption text-center mt-2">2ND FLOOR</p>
+                    </div>
+                    <div class="plan-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857981/Screenshot_2025-07-07_at_10.12.24_AM_t7fohy.png" alt="Shophouse 3rd Floor Plan" class="clickable-image" data-group="floorplans" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751857981/Screenshot_2025-07-07_at_10.12.24_AM_t7fohy.png">
+                        <p class="image-caption text-center mt-2">3RD FLOOR</p>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="mb-12 px-4 py-4 bg-white rounded-lg shadow-lg mt-8" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center"> INTERIOR SPACES | បរិយាកាសខាងក្នុង</h2>
+
+                <!-- Features (Bedroom, Bathroom, Storage) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-x-8 gap-y-4 text-gray-700 text-lg mb-8">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-bed w-5 h-5 mr-2 text-gray-500"></i>
+                        <span>បន្ទប់គេង | Bedroom: <span class="font-bold">5</span></span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-bath w-5 h-5 mr-2 text-gray-500"></i>
+                        <span>បន្ទប់ទឹក | Bathroom: <span class="font-bold">6</span></span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-box-archive w-5 h-5 mr-2 text-gray-500"></i>
+                        <span>បន្ទប់ដាក់ឥវ៉ាន់ | Storage room: <span class="font-bold">1</span></span>
+                    </div>
+                </div>
+
+                <!-- Interior Spaces Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="interior-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083902/RD/shophouse/A-Living_01_f1utp8.png" alt="Living Room" class="clickable-image" data-group="interior-all" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083902/RD/shophouse/A-Living_01_f1utp8.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់ទទួលភ្ញៀវ | LIVINGROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083894/RD/shophouse/A-Kitchen_Op02V02_ezfawu.png" alt="Kitchen" class="clickable-image" data-group="interior-all" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083894/RD/shophouse/A-Kitchen_Op02V02_ezfawu.png">
+                        <p class="image-caption text-center mt-2">ផ្ទះបាយ | KITCHEN</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083896/RD/shophouse/A-Master_Bedroom_01_rake4z.png" alt="Master Bedroom" class="clickable-image" data-group="interior-all" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751083896/RD/shophouse/A-Master_Bedroom_01_rake4z.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់គេងធំ | MASTER BEDROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/A-Office 01.png" alt="Office Room" class="clickable-image" data-group="interior-all" data-fullsrc="Image/A-Office 01.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់ការិយាល័យ | OFFICE ROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/PARTTY.png" alt="Party Room" class="clickable-image" data-group="interior-all" data-fullsrc="Image/PARTTY.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់ជប់លៀង | PARTY ROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751859054/RD/shophouse/A-Terrace_01_mwfoa1.png" alt="Outdoor Space" class="clickable-image" data-group="interior-all" data-fullsrc="https://res.cloudinary.com/dwkr6qrpf/image/upload/v1751859054/RD/shophouse/A-Terrace_01_mwfoa1.png">
+                        <p class="image-caption text-center mt-2">សួនច្បារខាងក្រៅ | OUTDOOR SPACE</p>
+                    </div>
+                </div>
+
+               
+            </section>
+
+            <!-- OUR PROCESS Section - Bar Graph Layout -->
+            <section class="mb-12 px-4 py-4 bg-white rounded-lg shadow-lg mt-8" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-bold text-black mb-8 text-center">OUR PROCESS</h2>
+                <p class="text-lg text-black text-start ">
+                    បច្ចុប្បន្នភាពការងារសាងសង់ <br>
+                    <h1 class="text-2xl font-bold text-[#3C0008] ">ធីអេច រេស៊ីដេន</h1> 
+                    <h2 class="text-sm">គម្រោង ដង្កោ I | គិតត្រឹមថ្ងៃទី 10 កក្កដា 2025</h2>
+                </p>
+
+                <div class="bar-graph-container">
+                    <!-- Bar 1: Foundation Work -->
+                    <div class="bar-item foundation-bar">
+                        <div class="bar-background">
+                            <div class="bar-fill" style="--bar-height: 80%;"></div>
+                            <span class="bar-percentage-label ">80%</span>
+                        </div>
+                        <div class="bar-label-container">
+                            <p class="text-label">ការងារគ្រឹះ</p>
+                            <p class="text-label">Foundation Work</p>
+                        </div>
+                    </div>
+
+                    <!-- Bar 2: Wall Work -->
+                    <div class="bar-item wall-bar">
+                        <div class="bar-background">
+                            <div class="bar-fill" style="--bar-height: 70%;"></div>
+                            <span class="bar-percentage-label">70%</span>
+                        </div>
+                        <div class="bar-label-container">
+                            <p class="text-label">ការងារជញ្ជាំង</p>
+                            <p class="text-label">Wall Work</p>
+                        </div>
+                    </div>
+
+                    <!-- Bar 3: Plumbing Work -->
+                    <div class="bar-item plumbing-bar">
+                        <div class="bar-background">
+                            <div class="bar-fill" style="--bar-height: 50%;"></div>
+                            <span class="bar-percentage-label">50%</span>
+                        </div>
+                        <div class="bar-label-container">
+                            <p class="text-label">ការងារប្រព័ន្ធទឹក</p>
+                            <p class="text-label">Plumbing Work</p>
+                        </div>
+                    </div>
+
+                    <!-- Bar 4: Electrical Work -->
+                    <div class="bar-item electrical-bar">
+                        <div class="bar-background">
+                            <div class="bar-fill" style="--bar-height: 70%;"></div>
+                            <span class="bar-percentage-label">70%</span>
+                        </div>
+                        <div class="bar-label-container">
+                            <p class="text-label">ការងារបំពង់ភ្លើង</p>
+                            <p class="text-label">Electrical Work</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+
+    <div class="fixed bottom-4 right-4 z-40">
+        <a href="https://momento360.com/e/uc/64e75d37edf947958f7f1a6f79179cbe?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="bg-[#7E252C] text-white py-3 px-6 rounded-full shadow-lg hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold flex items-center justify-center">
+            <i class="fa-solid fa-cube mr-2"></i> View 3D
+        </a>
+    </div>
+
+    <div id="image-modal" class="modal-overlay">
+        <img id="modal-image" src="" alt="Enlarged Image" class="modal-content">
+        <button id="prev-image-button" class="modal-nav-button left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="next-image-button" class="modal-nav-button right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+   <!-- ABOUT US Section -->
+    <section class="py-16 bg-white text-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
+            <h2 class="text-4xl font-bold mb-8  border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
+            <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
+                <!-- Left Column: Logo/Image and its Description -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
+                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
+                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                    </div>
+                </div>
+
+                <!-- Right Column: Main About Us text + Follow Us & Contact Us -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-100">
+                    <p class="text-lg leading-relaxed text-black mb-8">
+                        TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-300">
+                        <!-- Follow Us Card -->
+                        <div class="bg-white border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">FOLLOW US</h3>
+                            <div class="flex justify-start space-x-6 mt-2">
+                                <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-facebook text-3xl"></i>
+                                </a>
+                                <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-telegram text-3xl"></i>
+                                </a>
+                                <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-instagram text-3xl"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-tiktok text-3xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- Contact Us (Email & General) Card -->
+                        <div class="bg-white  border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">CONTACT US</h3>
+                            <p class="text-black text-sm leading-normal flex items-start">
+                                <i class="fa-solid fa-envelope text-gray-500 mr-3 mt-1"></i>
+                                <a href="mailto:thresidence.socialmedia@gmail.com" class="text-black hover:text-[#3c0008] transition duration-300">thresidence.socialmedia@gmail.com</a>
+                            </p>
+                            <p class="text-black text-sm leading-normal flex items-center mt-2">
+                                <i class="fa-solid fa-phone text-gray-500 mr-3"></i>
+                                <a href="tel:+85598765432" class="text-black hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
+                            </p>
+                            <p class="text-black text-xs leading-normal flex items-start mt-2">
+                                <i class="fa-solid fa-location-dot text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-black hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Subscription -->
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400">
+                <input type="email" placeholder="Enter your email address" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3C0008] text-gray-800 placeholder-gray-500">
+                <button class="bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+         <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            &copy; <span id="current-year-footer"></span> TH Residence. All rights reserved.
+        </div>
+    </section>
+
+
+       
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+        AOS.init(); // Initialize AOS
+        
+      // Dynamically set the current year in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+        AOS.init(); // Initialize AOS
+
+        // --- Navbar Logic - Copied from home.html ---
+        const navItemsData = [
+            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
+            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#our-project-section' },
+            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'index.html#about-us-section' },
+            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#media' },
+        ];
+
+        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        // Function to render navigation items
+        function renderNavItems() {
+            navMenu.innerHTML = ''; // Clear existing items
+            navItemsData.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'relative group p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100';
+
+                const a = document.createElement('a');
+                a.href = item.href; // Use item.href for navigation
+                a.className = 'flex items-center justify-center text-gray-700 font-semibold hover:text-[#3c0008] transition-colors duration-300 ease-in-out'; // Changed hover color
+
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
+                iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'text-lg hidden'; // Initially hidden
+                textSpan.textContent = item.text;
+
+                a.appendChild(iconSpan);
+                a.appendChild(textSpan);
+                li.appendChild(a);
+
+                // Add hover/click effect
+                li.addEventListener('mouseenter', () => {
+                    iconSpan.classList.add('hidden');
+                    textSpan.classList.remove('hidden');
+                });
+                li.addEventListener('mouseleave', () => {
+                    iconSpan.classList.remove('hidden');
+                    textSpan.classList.add('hidden');
+                });
+
+                // Underline effect for active page (optional, for current page highlighting)
+                // This logic needs to be more robust for multi-page sites,
+                // but for now, we can highlight 'home' if on index.html
+                if (window.location.pathname.includes(item.href.split('#')[0]) && item.href.split('#')[0] !== '') {
+                     const underline = document.createElement('div');
+                     underline.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#3c0008] rounded-full';
+                     li.appendChild(underline);
+                }
+
+
+                navMenu.appendChild(li);
+            });
+        }
+
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('block');
+        });
+
+        // Initial render of nav items
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNavItems();
+        });
+
+        // --- Shophouse Main Carousel Logic ---
+        const shophouseCarousel = document.getElementById('shophouse-carousel');
+        const shophousePrevButton = document.getElementById('shophouse-prev');
+        const shophouseNextButton = document.getElementById('shophouse-next');
+        const shophouseIndicatorsContainer = document.getElementById('shophouse-indicators');
+
+       const shophouseImages = [
+            "Image/SHOPHOUSE_EVENING_VIEW022.jpg", // Original Shophouse image
+            "Image/TH_SHOPHOUSE V05.jpg", // Living Room
+            "Image/TH_SHOPHOUSE V02.jpg", // Kitchen
+            "Image/TH_SHOPHOUSE V03.jpg" // Master Bedroom
+        ];
+
+        let currentShophouseDisplayIndex = 0; // Index in the DOM (including clones)
+        let autoPlayIntervalShophouse;
+
+        function initializeShophouseCarousel() {
+            shophouseCarousel.innerHTML = ''; // Clear existing content
+            shophouseIndicatorsContainer.innerHTML = ''; // Clear existing indicators
+
+            // Create slides including clones for seamless looping
+            const shophouseCarouselSlides = [
+                shophouseImages[shophouseImages.length - 1], // Clone of last image
+                ...shophouseImages, // Original images
+                shophouseImages[0] // Clone of first image
+            ];
+
+            shophouseCarouselSlides.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Shophouse Image ${index + 1}`;
+                img.classList.add('carousel-slide', 'clickable-image'); // Add clickable-image class
+                img.setAttribute('data-fullsrc', src); // Ensure data-fullsrc is set for modal
+                shophouseCarousel.appendChild(img);
+            });
+
+            // Create indicators for original images only
+            shophouseImages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator-dot');
+                dot.addEventListener('click', () => { 
+                    showShophouseSlide(index + 1); // +1 because of the leading clone
+                    resetAutoPlayShophouse(); 
+                });
+                shophouseIndicatorsContainer.appendChild(dot);
+            });
+
+            currentShophouseDisplayIndex = 1; // Start at the first actual image (index 1 in the display array)
+            showShophouseSlide(currentShophouseDisplayIndex, false); // Show initial slide without transition
+            startAutoPlayShophouse();
+        }
+
+        function showShophouseSlide(index, smoothTransition = true) {
+            const totalOriginalSlides = shophouseImages.length;
+            const displaySlidesCount = totalOriginalSlides + 2; // Original + 2 clones
+
+            shophouseCarousel.style.transition = smoothTransition ? 'transform 0.5s ease-in-out' : 'none';
+            shophouseCarousel.style.transform = `translateX(-${index * 100}%)`;
+            currentShophouseDisplayIndex = index;
+
+            // Update indicators based on the *original* image index
+            let originalIndex = (index - 1 + totalOriginalSlides) % totalOriginalSlides; // Adjust for clones
+            Array.from(shophouseIndicatorsContainer.children).forEach((dot, i) => {
+                dot.classList.toggle('active', i === originalIndex);
+            });
+
+            // Handle seamless looping after transition
+            if (index === displaySlidesCount - 1) { // If it's the cloned first image (at the end)
+                setTimeout(() => {
+                    showShophouseSlide(1, false); // Jump to the actual first image without transition
+                }, 500); // Match transition duration
+            } else if (index === 0) { // If it's the cloned last image (at the beginning)
+                setTimeout(() => {
+                    showShophouseSlide(totalOriginalSlides, false); // Jump to the actual last image without transition
+                }, 500); // Match transition duration
+            }
+        }
+
+        function nextShophouseSlide() {
+            showShophouseSlide(currentShophouseDisplayIndex + 1);
+            resetAutoPlayShophouse();
+        }
+
+        function prevShophouseSlide() {
+            showShophouseSlide(currentShophouseDisplayIndex - 1);
+            resetAutoPlayShophouse();
+        }
+
+        function startAutoPlayShophouse() {
+            stopAutoPlayShophouse(); // Clear any existing interval
+            autoPlayIntervalShophouse = setInterval(() => {
+                showShophouseSlide(currentShophouseDisplayIndex + 1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoPlayShophouse() {
+            clearInterval(autoPlayIntervalShophouse);
+        }
+
+        function resetAutoPlayShophouse() {
+            stopAutoPlayShophouse();
+            startAutoPlayShophouse();
+        }
+
+        // Event listeners for carousel navigation
+        shophouseNextButton.addEventListener('click', nextShophouseSlide);
+        shophousePrevButton.addEventListener('click', prevShophouseSlide);
+
+        // Initialize the shophouse carousel when the DOM is ready
+        document.addEventListener('DOMContentLoaded', initializeShophouseCarousel);
+
+        // JavaScript for active navigation link highlighting (adapted for shophouse-details)
+        // This will now work with the dynamically generated nav links
+        function highlightActiveLink() {
+            const currentPath = window.location.pathname.split('/').pop(); // Get current page filename
+            navItemsData.forEach(item => {
+                const linkElement = navMenu.querySelector(`a[href="${item.href}"]`);
+                if (linkElement) {
+                    // Check if the link's href matches the current page or its section
+                    const linkPath = item.href.split('#')[0].split('/').pop();
+                    const linkHash = item.href.split('#')[1];
+
+                    if (linkPath === currentPath) {
+                        if (linkHash) {
+                            // For links with hashes, check if the section is in view
+                            const section = document.getElementById(linkHash);
+                            if (section && isElementInViewport(section)) {
+                                linkElement.parentElement.classList.add('active-link');
+                            } else {
+                                linkElement.parentElement.classList.remove('active-link');
+                            }
+                        } else {
+                            // For links without hashes (e.g., Home_Page.html), activate if it's the current page
+                            linkElement.parentElement.classList.add('active-link');
+                        }
+                    } else {
+                        linkElement.parentElement.classList.remove('active-link');
+                    }
+                }
+            });
+        }
+
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Call highlight function on scroll and load
+        window.addEventListener('scroll', highlightActiveLink);
+        document.addEventListener('DOMContentLoaded', highlightActiveLink);
+
+    </script>
+</body>
+</html>

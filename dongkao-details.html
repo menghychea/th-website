@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH Residence - Dong Kao I Project Details</title>
+    <!-- Tailwind CSS CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts CDN links for Inter and Kantumruy Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Kantumruy+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS CDN link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="dongkao-details.css"> <!-- Link to custom CSS file -->
+
+
+</head>
+
+<body class="flex flex-col min-h-screen" style="padding-top: 72px;"> <!-- Added padding-top for fixed header -->
+
+    <!-- Navbar - Copied from home.html -->
+    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50">
+        <div class="flex items-center space-x-2 p-2 rounded-md">
+            <img src="Image/profile.jpg" alt="Company Logo" class="h-10 w-10 rounded-full">
+            <span class="text-2xl font-bold text-black">TH RESIDENCE</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-gray-800 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Desktop and Mobile Menu -->
+        <ul id="nav-menu" class="w-full md:w-auto md:flex md:space-x-8 mt-4 md:mt-0 hidden md:block">
+            <!-- Nav items will be dynamically populated by JavaScript -->
+        </ul>
+    </nav>
+
+    <main class="flex-grow w-full py-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+
+             <section id="properties-section">
+            <div id="project-dongkoa-i-section" class="project-dongkoa-bg w-full py-2 text-center text-[#3C0008] text-3xl sm:text-4xl md:text-5xl font-extrabold" data-aos="fade-up" data-aos-duration="1000">
+                PROJECT DONGKOA I
+            </div>     
+            
+            <div class="max-w-7xl mx-auto px-4 py-8">
+                 <div class="flex flex-nowrap md:grid md:grid-cols-2 gap-20 overflow-x-auto pb-4 hide-scrollbar md:justify-center">
+                    <!-- Shophouse Card -->
+                     <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <!-- Placeholder for Shophouse image -->
+                        <img src="Image/SHOPHOUSE_EVENING_VIEW022.jpg" alt="Shophouse" class="w-full h-64 object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold text-black-200 mb-2">SHOPHOUSE | ផ្ទះអាជីវកម្ម</h3>
+                                <div class="flex items-center text-black mb-2">
+                                    <i class="fa-solid fa-bed w-5 h-5 mr-2 text-black"></i>
+                                    <span>5 Bedrooms</span>
+                                </div>
+                                <div class="flex items-center text-black mb-2">
+                                    <i class="fa-solid fa-bath w-5 h-5 mr-2 text-black"></i>
+                                    <span>6 Bathrooms</span>
+                                </div>
+                                <div class="flex items-center text-black mb-4">
+                                    <i class="fa-solid fa-dollar-sign w-5 h-5 mr-2 text-black"></i>
+                                    <span class="font-bold text-[#3c0008]">800$</span><span class="text-sm ml-1">/ខែ</span>
+                                </div>
+                                <div class="flex items-center text-black mb-4">
+                                    <svg class="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    <span>Dong Kao I, Phnom Penh</span>
+                                </div>
+                            </div>
+                            <a href="shophouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button">More Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Link House Card -->
+                    <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <!-- Placeholder for Link House image -->
+                        <img src="Image/LINK HOUSE_EVENING_VIEW055.jpg" alt="Link House" class="w-full h-64 object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-bold text-black mb-2 ">LINK HOUSE | លីងហោ៍ស </h3>
+                                <div class="flex items-center text-black mb-2">
+                                    <i class="fa-solid fa-bed w-5 h-5 mr-2 text-black"></i>
+                                    <span>4 Bedrooms</span>
+                                </div>
+                                <div class="flex items-center text-black mb-2">
+                                    <i class="fa-solid fa-bath w-5 h-5 mr-2 text-black"></i>
+                                    <span>5 Bathrooms</span>
+                                </div>
+                                <div class="flex items-center text-black mb-4">
+                                    <i class="fa-solid fa-dollar-sign w-5 h-5 mr-2 text-black"></i>
+                                    <span class="font-bold text-[#3C0008]">600$</span><span class="text-sm ml-1">/ខែ</span>
+                                </div>
+                                <div class="flex items-center text-black mb-4">
+                                    <svg class="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    <span>Dong Kao I, Phnom Penh</span>
+                                </div>
+                            </div>
+                            <a href="Linkhouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <!-- ABOUT US Section (Copied from Home_Page.html for consistency) -->
+    <section class="py-16 bg-white text-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
+            <h2 class="text-4xl font-bold mb-8 border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
+            <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
+                <!-- Left Column: Logo/Image and its Description -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
+                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
+                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                    </div>
+                </div>
+
+                <!-- Right Column: Main About Us text + Follow Us & Contact Us -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-100">
+                    <p class="text-lg leading-relaxed mb-8">
+                        TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-300">
+                        <!-- Follow Us Card -->
+                        <div class="bg-white border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-black mb-3 pb-2 border-b border-gray-200 w-full">FOLLOW US</h3>
+                            <div class="flex justify-start space-x-6 mt-2">
+                                <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-facebook text-3xl"></i>
+                                </a>
+                                <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-telegram text-3xl"></i>
+                                </a>
+                                <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-instagram text-3xl"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-tiktok text-3xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- Contact Us (Email & General) Card -->
+                        <div class="bg-white  border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-black mb-3 pb-2 border-b border-gray-200 w-full">CONTACT US</h3>
+                            <p class="text-gray-700 text-sm leading-normal flex items-start">
+                                <i class="fa-solid fa-envelope text-gray-500 mr-3 mt-1"></i>
+                                <a href="mailto:thresidence.socialmedia@gmail.com" class="text-gray-700 hover:text-[#3c0008] transition duration-300">thresidence.socialmedia@gmail.com</a>
+                            </p>
+                            <p class="text-gray-700 text-sm leading-normal flex items-center mt-2">
+                                <i class="fa-solid fa-phone text-gray-500 mr-3"></i>
+                                <a href="tel:+85598765432" class="text-gray-700 hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
+                            </p>
+                            <p class="text-gray-700 text-xs leading-normal flex items-start mt-2">
+                                <i class="fa-solid fa-location-dot text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-gray-700 hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Subscription -->
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400">
+                <input type="email" placeholder="Enter your email address" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-500">
+                <button class="bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION Section (Copied from Home_Page.html for consistency) -->
+    <section class="py-16 bg-white text-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">LOCATION</h2>
+            <p class="max-w-4xl mx-auto text-lg leading-relaxed text-center mb-12 animate-fade-in-up delay-100">
+                Find us easily at our project site in Dong Kao I, Phnom Penh.
+            </p>
+
+            <div class="relative w-full h-96 rounded-lg overflow-hidden shadow-xl animate-fade-in-up delay-200">
+                <!-- Google Maps Embed (replace with your actual embed code for precise location) -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.6138647434677!2d104.85387224334742!3d11.507753216226236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109518124b3895b%3A0xaa92d9552d0aa78e!2sTH%20Residence%20Dangkoa%20I!5e0!3m2!1sen!2skh!4v1753426537479!5m2!1sen!2skh"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2024 TH Residence. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+        
+        // --- Navbar Logic ---
+        const navItemsData = [
+            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
+            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href:'Home_Page.html#our-project-section' },
+            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'Home_Page.html#about-section' },
+            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#media-section' },
+        ];
+
+        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        // Function to render navigation items
+        function renderNavItems() {
+            navMenu.innerHTML = ''; // Clear existing items
+            navItemsData.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'relative group p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100';
+
+                const a = document.createElement('a');
+                a.href = `#${item.id}`;
+                a.className = 'flex items-center justify-center text-black font-semibold hover:text-[#3C0008] transition-colors duration-300 ease-in-out';
+
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
+                iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'text-lg hidden'; // Initially hidden
+                textSpan.textContent = item.text;
+
+                a.appendChild(iconSpan);
+                a.appendChild(textSpan);
+                li.appendChild(a);
+
+                // Add hover/click effect
+                li.addEventListener('mouseenter', () => {
+                    iconSpan.classList.add('hidden');
+                    textSpan.classList.remove('hidden');
+                });
+                li.addEventListener('mouseleave', () => {
+                    iconSpan.classList.remove('hidden');
+                    textSpan.classList.add('hidden');
+                });
+
+            
+                navMenu.appendChild(li);
+            });
+        }
+
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('block');
+        });
+
+        // Initial render of nav items
+        renderNavItems();
+        
+        // Select all clickable images, including carousel slides and grid images
+        const clickableImages = document.querySelectorAll('.clickable-image'); 
+
+        let currentImageGroup = [];
+        let currentImageIndex = 0;
+
+        function showImageInModal(index) {
+            if (currentImageGroup.length > 0 && index >= 0 && index < currentImageGroup.length) {
+                modalImage.src = currentImageGroup[index];
+                currentImageIndex = index;
+
+                // Always show navigation buttons for modal carousel if there's more than one image
+                prevButton.classList.toggle('hidden', currentImageGroup.length <= 1);
+                nextButton.classList.toggle('hidden', currentImageGroup.length <= 1);
+            }
+        }
+
+        // --- Shophouse Main Carousel Logic ---
+        // (This section is not directly used in dongkao-details.html as it doesn't have a main carousel)
+        // However, keeping the structure in case it's needed for future expansion or if this file evolves.
+        const shophouseCarousel = document.getElementById('shophouse-carousel');
+        const shophousePrevButton = document.getElementById('shophouse-prev');
+        const shophouseNextButton = document.getElementById('shophouse-next');
+        const shophouseIndicatorsContainer = document.getElementById('shophouse-indicators');
+
+       const shophouseImages = [
+            "Image/SHOPHOUSE_EVENING_VIEW022.jpg", // Original Shophouse image
+            "Image/TH_SHOPHOUSE V05.jpg", // Living Room
+            "Image/TH_SHOPHOUSE V02.jpg", // Kitchen
+            "Image/TH_SHOPHOUSE V03.jpg" // Master Bedroom
+        ];
+
+        let currentShophouseDisplayIndex = 0; // Index in the DOM (including clones)
+        let autoPlayIntervalShophouse;
+
+        // The carousel initialization and related functions for shophouse are not called here
+        // as this page only displays static cards.
+
+        // JavaScript for active navigation link highlighting (adapted for shophouse-details)
+        // This will now work with the dynamically generated nav links
+        function highlightActiveLink() {
+            const currentPath = window.location.pathname.split('/').pop(); // Get current page filename
+            navItemsData.forEach(item => {
+                const linkElement = navMenu.querySelector(`a[href="${item.href}"]`);
+                if (linkElement) {
+                    // Check if the link's href matches the current page or its section
+                    const linkPath = item.href.split('#')[0].split('/').pop();
+                    const linkHash = item.href.split('#')[1];
+
+                    // Special handling for dongkao-details.html to highlight "OUR PROJECT"
+                    if (currentPath === 'dongkao-details.html' && item.id === 'projects') {
+                        linkElement.parentElement.classList.add('active-link');
+                    } else if (linkPath === currentPath) {
+                        if (linkHash) {
+                            // For links with hashes, check if the section is in view
+                            const section = document.getElementById(linkHash);
+                            if (section && isElementInViewport(section)) {
+                                linkElement.parentElement.classList.add('active-link');
+                            } else {
+                                linkElement.parentElement.classList.remove('active-link');
+                            }
+                        } else {
+                            // For links without hashes (e.g., Home_Page.html), activate if it's the current page
+                            linkElement.parentElement.classList.add('active-link');
+                        }
+                    } else {
+                        linkElement.parentElement.classList.remove('active-link');
+                    }
+                }
+            });
+        }
+
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Call highlight function on scroll and load
+        window.addEventListener('scroll', highlightActiveLink);
+        document.addEventListener('DOMContentLoaded', highlightActiveLink);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH Residence - Link House Details</title>
+    <!-- Tailwind CSS CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts CDN link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- AOS CSS CDN link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="linkhouse.css">
+
+    
+</head>
+<body class="flex flex-col min-h-screen" style="padding-top: 72px;"> <!-- Added padding-top to account for fixed header -->
+    
+    <!-- Navbar - Copied from home.html -->
+    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50">
+        <div class="flex items-center space-x-2 p-2 rounded-md">
+            <img src="Image/profile.jpg" alt="Company Logo" class="h-10 w-10 rounded-full">
+            <span class="text-2xl font-bold text-black">TH RESIDENCE</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Desktop and Mobile Menu -->
+        <ul id="nav-menu" class="w-full md:w-auto md:flex md:space-x-8 mt-4 md:mt-0 hidden md:block">
+            <!-- Nav items will be dynamically populated by JavaScript -->
+        </ul>
+    </nav>
+
+    <main class="flex-grow w-full py-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+
+            <section class="rounded-lg p-6 mb-12 text-center bg-white shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">LINK HOUSE | ផ្ទះលីង</h1>
+                
+                <!-- Land Size and House Size (Placeholder values) -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8 text-black text-lg font-medium mb-6">
+                    <span class="whitespace-nowrap">ទំហំដី | Land Size: <span class="font-bold">5m x 20m</span></span>
+                    <span class="whitespace-nowrap">ទំហំផ្ទះ | House Size: <span class="font-bold">5m x 12m</span></span>
+                </div>
+                
+                <!-- Linkhouse Main Image Carousel -->
+                <div class="carousel-container mb-8">
+                    <div id="linkhouse-carousel" class="carousel-inner">
+                        <!-- Slides will be injected by JavaScript -->
+                    </div>
+                    <!-- Carousel Navigation Buttons -->
+                    <button id="linkhouse-prev" class="carousel-nav-button left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="linkhouse-next" class="carousel-nav-button right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <!-- Carousel Indicators -->
+                    <div id="linkhouse-indicators" class="carousel-indicators">
+                        <!-- Indicators will be injected by JavaScript -->
+                    </div>
+                </div>
+                <!-- End Linkhouse Main Image Carousel -->
+                
+                <a href="https://momento360.com/e/uc/149c4e3a641b4775aac98516e3d1425b?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="inline-block bg-[#7E252C] text-white py-3 px-8 rounded-md hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold shadow-lg mt-4">View 3D Model</a>
+            </section>
+
+            <section class="mb-12 px-4 py-16 bg-gray-50 rounded-lg shadow-inner mt-8" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-bold text-black mb-8 text-center">Floor Plans | ប្លង់ផ្ទះ</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="plan-image-container p-4">
+                        <img src="Image/B_GFloor.png" alt="Linkhouse Ground Floor Plan" class="clickable-image" data-group="linkhouse-floorplans" data-fullsrc="Image/B_GFloor.png">
+                        <p class="image-caption text-center mt-2">GROUND FLOOR</p>
+                    </div>
+                    <div class="plan-image-container p-4">
+                        <img src="Image/B_1Floor.png" alt="Linkhouse 1st Floor Plan" class="clickable-image" data-group="linkhouse-floorplans" data-fullsrc="Image/B_1Floor.png">
+                        <p class="image-caption text-center mt-2">1ST FLOOR</p>
+                    </div>
+                    <div class="plan-image-container p-4">
+                        <img src="Image/B_2Floor.png" alt="Linkhouse 2nd Floor Plan" class="clickable-image" data-group="linkhouse-floorplans" data-fullsrc="Image/B_2Floor.png">
+                        <p class="image-caption text-center mt-2">2ND FLOOR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12 px-4 py-16 bg-white rounded-lg shadow-lg mt-8" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl font-bold text-black mb-8 text-center">Interior Spaces | បរិយាកាសខាងក្នុង</h2>
+                
+                <!-- Features (Bedroom, Bathroom, Storage) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-x-8 gap-y-4 text-gray-700 text-lg mb-8">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-bed w-5 h-5 mr-2 text-gray-500"></i>
+                        <span>បន្ទប់គេង | Bedroom: <span class="font-bold">5</span></span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-bath w-5 h-5 mr-2 text-gray-500"></i>
+                        <span>បន្ទប់ទឹក | Bathroom: <span class="font-bold">6</span></span>
+                    </div>
+                </div>
+
+                <!-- Interior Spaces Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-LIVING ROOM-1.jpg" alt="Linkhouse Living Room" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-LIVING ROOM-1.jpg">
+                        <p class="image-caption text-center mt-2">បន្ទប់ទទួលភ្ញៀវ | LIVINGROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-KITCHEN-1.jpg" alt="Linkhouse Kitchen" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-KITCHEN-1.jpg">
+                        <p class="image-caption text-center mt-2">ផ្ទះបាយ | KITCHEN</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-MASTER BEDROOM-3.png" alt="Linkhouse Master Bedroom" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-MASTER BEDROOM-3.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់គេងធំ | MASTER BEDROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-HomeOffice.png" alt="Linkhouse Home Office" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-HomeOffice.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់ការិយាល័យ | HOME OFFICE</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-GIRL BEDROOM-3.png" alt="Linkhouse Girl Bedroom" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-GIRL BEDROOM-3.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់កូនស្រី | GIRL BEDROOM</p>
+                    </div>
+                    <div class="interior-image-container p-4">
+                        <img src="Image/B-Boy Bedroom.png" alt="Linkhouse Boy Bedroom" class="clickable-image" data-group="linkhouse-interior-all" data-fullsrc="Image/B-Boy Bedroom.png">
+                        <p class="image-caption text-center mt-2">បន្ទប់កូនប្រុស | BOY BEDROOM</p>
+                    </div>
+                </div>
+            </section>
+          
+
+        </div>
+    </main>
+
+    <div class="fixed bottom-4 right-4 z-40">
+        <a href="https://momento360.com/e/uc/149c4e3a641b4775aac98516e3d1425b?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="bg-[#7E252C] text-white py-3 px-6 rounded-full shadow-lg hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold flex items-center justify-center">
+            <i class="fa-solid fa-cube mr-2"></i> View 3D
+        </a>
+    </div>
+
+    <div id="image-modal" class="modal-overlay">
+        <img id="modal-image" src="" alt="Enlarged Image" class="modal-content">
+        <button id="prev-image-button" class="modal-nav-button left"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="next-image-button" class="modal-nav-button right"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- ABOUT US Section -->
+    <section class="py-16 bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
+            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
+            <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
+                <!-- Left Column: Logo/Image and its Description -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
+                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
+                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                    </div>
+                </div>
+
+                <!-- Right Column: Main About Us text + Follow Us & Contact Us -->
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-100">
+                    <p class="text-lg leading-relaxed mb-8">
+                        TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-300">
+                        <!-- Follow Us Card -->
+                        <div class="bg-white border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">FOLLOW US</h3>
+                            <div class="flex justify-start space-x-6 mt-2">
+                                <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-facebook text-3xl"></i>
+                                </a>
+                                <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-telegram text-3xl"></i>
+                                </a>
+                                <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-instagram text-3xl"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                    <i class="fa-brands fa-tiktok text-3xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- Contact Us (Email & General) Card -->
+                        <div class="bg-white  border-gray-100 text-left flex flex-col items-start">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">CONTACT US</h3>
+                            <p class="text-gray-700 text-sm leading-normal flex items-start">
+                                <i class="fa-solid fa-envelope text-gray-500 mr-3 mt-1"></i>
+                                <a href="mailto:thresidence.socialmedia@gmail.com" class="text-gray-700 hover:text-[#3c0008] transition duration-300">thresidence.socialmedia@gmail.com</a>
+                            </p>
+                            <p class="text-gray-700 text-sm leading-normal flex items-center mt-2">
+                                <i class="fa-solid fa-phone text-gray-500 mr-3"></i>
+                                <a href="tel:+85598765432" class="text-gray-700 hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
+                            </p>
+                            <p class="text-gray-700 text-xs leading-normal flex items-start mt-2">
+                                <i class="fa-solid fa-location-dot text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-gray-700 hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Subscription -->
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400">
+                <input type="email" placeholder="Enter your email address" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-500">
+                <button class="bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+         <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            &copy; <span id="current-year-footer"></span> TH Residence. All rights reserved.
+        </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Dynamically set the current year in the footer
+        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+        AOS.init(); // Initialize AOS
+
+        // --- Navbar Logic - Copied from home.html ---
+        const navItemsData = [
+            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
+            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#our-project-section' },
+            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'index.html#about-us-section' },
+            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#media' },
+        ];
+
+        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        // Function to render navigation items
+        function renderNavItems() {
+            navMenu.innerHTML = ''; // Clear existing items
+            navItemsData.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'relative group p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100';
+
+                const a = document.createElement('a');
+                a.href = item.href; // Use item.href for navigation
+                a.className = 'flex items-center justify-center text-gray-700 font-semibold hover:text-[#3c0008] transition-colors duration-300 ease-in-out'; // Changed hover color
+
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
+                iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'text-lg hidden'; // Initially hidden
+                textSpan.textContent = item.text;
+
+                a.appendChild(iconSpan);
+                a.appendChild(textSpan);
+                li.appendChild(a);
+
+                // Add hover/click effect
+                li.addEventListener('mouseenter', () => {
+                    iconSpan.classList.add('hidden');
+                    textSpan.classList.remove('hidden');
+                });
+                li.addEventListener('mouseleave', () => {
+                    iconSpan.classList.remove('hidden');
+                    textSpan.classList.add('hidden');
+                });
+
+                // Underline effect for active page (optional, for current page highlighting)
+                // This logic needs to be more robust for multi-page sites,
+                // but for now, we can highlight 'home' if on index.html
+                if (window.location.pathname.includes(item.href.split('#')[0]) && item.href.split('#')[0] !== '') {
+                     const underline = document.createElement('div');
+                     underline.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#3c0008] rounded-full';
+                     li.appendChild(underline);
+                }
+
+
+                navMenu.appendChild(li);
+            });
+        }
+
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('block');
+        });
+
+        // Initial render of nav items
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNavItems();
+        });
+
+
+        // --- Linkhouse Main Carousel Logic --- 
+        const linkhouseImages = [
+            "Image/LINK HOUSE_EVENING_VIEW055.jpg", 
+            "Image/TH_LINK HOUSE V04.jpg", 
+            "Image/TH_LINK HOUSE V03.jpg", 
+            "Image/TH_LINK HOUSE V05.jpg" 
+        ];
+
+        let currentLinkhouseDisplayIndex = 0; 
+        let autoPlayIntervalLinkhouse;
+
+        function initializeLinkhouseCarousel() {
+            linkhouseCarousel = document.getElementById('linkhouse-carousel');
+            linkhouseIndicatorsContainer = document.getElementById('linkhouse-indicators');
+            linkhousePrevButton = document.getElementById('linkhouse-prev');
+            linkhouseNextButton = document.getElementById('linkhouse-next');
+
+            if (!linkhouseCarousel || !linkhouseIndicatorsContainer || !linkhousePrevButton || !linkhouseNextButton) {
+                console.error("Linkhouse carousel elements not found. Skipping initialization.");
+                return;
+            }
+
+            linkhouseCarousel.innerHTML = ''; 
+            linkhouseIndicatorsContainer.innerHTML = ''; 
+
+            const linkhouseCarouselSlides = [
+                linkhouseImages[linkhouseImages.length - 1], 
+                ...linkhouseImages, 
+                linkhouseImages[0] 
+            ];
+
+            linkhouseCarouselSlides.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src; // No basename needed as images are relative to the HTML file
+                img.alt = `Linkhouse Image ${index + 1}`;
+                img.classList.add('carousel-slide', 'clickable-image'); 
+                img.setAttribute('data-fullsrc', src); // No basename needed here
+                linkhouseCarousel.appendChild(img);
+            });
+
+            linkhouseImages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator-dot');
+                dot.addEventListener('click', () => { 
+                    showLinkhouseSlide(index + 1); 
+                    resetAutoPlayLinkhouse(); 
+                });
+                linkhouseIndicatorsContainer.appendChild(dot);
+            });
+
+            currentLinkhouseDisplayIndex = 1; 
+            showLinkhouseSlide(currentLinkhouseDisplayIndex, false); 
+            startAutoPlayLinkhouse();
+
+            linkhouseNextButton.addEventListener('click', nextLinkhouseSlide);
+            linkhousePrevButton.addEventListener('click', prevLinkhouseSlide);
+        }
+
+        function showLinkhouseSlide(index, smoothTransition = true) {
+            if (!linkhouseCarousel) {
+                console.error("linkhouseCarousel is null in showLinkhouseSlide. Cannot update style.");
+                return;
+            }
+
+            const totalOriginalSlides = linkhouseImages.length;
+            const displaySlidesCount = totalOriginalSlides + 2; 
+
+            linkhouseCarousel.style.transition = smoothTransition ? 'transform 0.5s ease-in-out' : 'none';
+            linkhouseCarousel.style.transform = `translateX(-${index * 100}%)`;
+            currentLinkhouseDisplayIndex = index;
+
+            if (linkhouseIndicatorsContainer) { 
+                let originalIndex = (index - 1 + totalOriginalSlides) % totalOriginalSlides; 
+                Array.from(linkhouseIndicatorsContainer.children).forEach((dot, i) => {
+                    dot.classList.toggle('active', i === originalIndex);
+                });
+            }
+
+            if (index === displaySlidesCount - 1) { 
+                setTimeout(() => {
+                    showLinkhouseSlide(1, false); 
+                }, 500); 
+            } else if (index === 0) { 
+                setTimeout(() => {
+                    showLinkhouseSlide(totalOriginalSlides, false); 
+                }, 500); 
+            }
+        }
+
+        function nextLinkhouseSlide() {
+            showLinkhouseSlide(currentLinkhouseDisplayIndex + 1);
+            resetAutoPlayLinkhouse();
+        }
+
+        function prevLinkhouseSlide() {
+            showLinkhouseSlide(currentLinkhouseDisplayIndex - 1);
+            resetAutoPlayLinkhouse();
+        }
+
+        function startAutoPlayLinkhouse() {
+            stopAutoPlayLinkhouse(); 
+            autoPlayIntervalLinkhouse = setInterval(() => {
+                showLinkhouseSlide(currentLinkhouseDisplayIndex + 1);
+            }, 5000); 
+        }
+
+        function stopAutoPlayLinkhouse() {
+            clearInterval(autoPlayIntervalLinkhouse);
+        }
+
+        function resetAutoPlayLinkhouse() {
+            stopAutoPlayLinkhouse();
+            startAutoPlayLinkhouse();
+        }
+
+        // --- Image Modal/Lightbox Logic with Carousel ---
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const prevButton = document.getElementById('prev-image-button');
+        const nextButton = document.getElementById('next-image-button');
+        
+        const clickableImages = document.querySelectorAll('.clickable-image'); 
+
+        let currentImageGroup = [];
+        let currentImageIndex = 0;
+
+        function showImageInModal(index) {
+            if (currentImageGroup.length > 0 && index >= 0 && index < currentImageGroup.length) {
+                modalImage.src = currentImageGroup[index];
+                currentImageIndex = index;
+
+                prevButton.classList.toggle('hidden', currentImageGroup.length <= 1);
+                nextButton.classList.toggle('hidden', currentImageGroup.length <= 1);
+            }
+        }
+
+        clickableImages.forEach(image => {
+            image.addEventListener('click', function() {
+                let groupImages = [];
+                let clickedImageSrc = this.getAttribute('data-fullsrc') || this.src;
+
+                // Determine the group of images based on parent container
+                if (this.closest('#linkhouse-carousel')) { 
+                    groupImages = linkhouseImages.map(src => src); // Use raw paths for carousel images
+                } 
+                else if (this.closest('.interior-image-container')) {
+                    groupImages = Array.from(document.querySelectorAll('.interior-image-container .clickable-image')).map(img => img.getAttribute('data-fullsrc') || img.src);
+                }
+                else if (this.closest('.plan-image-container')) {
+                    groupImages = Array.from(document.querySelectorAll('.plan-image-container .clickable-image')).map(img => img.getAttribute('data-fullsrc') || img.src);
+                }
+                else {
+                    groupImages = [clickedImageSrc]; 
+                }
+                
+                currentImageGroup = groupImages;
+                currentImageIndex = currentImageGroup.indexOf(clickedImageSrc);
+
+                if (currentImageGroup.length > 0) {
+                    showImageInModal(currentImageIndex);
+                    imageModal.classList.add('open');
+                    document.body.classList.add('modal-open'); 
+                }
+            });
+        });
+
+        prevButton.addEventListener('click', (event) => {
+            event.stopPropagation(); 
+            if (currentImageGroup.length > 1) { 
+                const prevIndex = (currentImageIndex - 1 + currentImageGroup.length) % currentImageGroup.length;
+                showImageInModal(prevIndex);
+            }
+        });
+
+        nextButton.addEventListener('click', (event) => {
+            event.stopPropagation(); 
+            if (currentImageGroup.length > 1) { 
+                const nextIndex = (currentImageIndex + 1) % currentImageGroup.length;
+                showImageInModal(nextIndex);
+            }
+        });
+
+        imageModal.addEventListener('click', function(event) {
+            if (event.target === imageModal) { 
+                imageModal.classList.remove('open');
+                document.body.classList.remove('modal-open'); 
+                modalImage.src = ''; 
+                currentImageGroup = []; 
+                currentImageIndex = 0; 
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && imageModal.classList.contains('open')) {
+                imageModal.classList.remove('open');
+                document.body.classList.remove('modal-open');
+                modalImage.src = '';
+                currentImageGroup = [];
+                currentImageIndex = 0;
+            }
+        });
+
+        // Initialize Linkhouse Carousel when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeLinkhouseCarousel();
+        });
+    </script>
+</body>
+</html>

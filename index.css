@@ -1,0 +1,89 @@
+
+        /* Define custom fonts and animations */
+        body {
+            font-family: 'Inter', 'Kantumruy Pro','kulankoulen', sans-serif;
+            overflow: hidden; /* Prevent scrolling on the splash screen */
+        }
+        .font-playfair { font-family: 'Inter', 'Kantumruy Pro','kulankoulen', sans-serif; }
+        .font-khmer { font-family: 'Kantumruy Pro', sans-serif; }
+
+        /* General purpose fade-out animation */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Styles for the logo wrapper (now primarily for containing the image and being covered by shapes) */
+        .logo-wrapper {
+            position: relative; /* For z-index and containing the image */
+            border-radius: 9999px;
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0); /* No initial shadow */
+            z-index: 5; /* Below the reveal shapes */
+        }
+
+        /* Styles for the reveal shapes */
+        .reveal-shape {
+            position: absolute;
+            top: 0;
+            width: 50%; /* Each covers half the width of the container */
+            height: 100%; /* Covers full height of container */
+            background-color: #3C0008; /* Dark background color for the shapes */
+            z-index: 10; /* Above the logo */
+            transition: transform 1s ease-out; /* For smooth sliding */
+        }
+
+        .reveal-left {
+            left: 0;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            right: 0;
+            transform: translateX(0);
+        }
+
+        /* Keyframe animations for sliding out the shapes */
+        @keyframes slideOutLeft {
+            to { transform: translateX(-100%); }
+        }
+
+        @keyframes slideOutRight {
+            to { transform: translateX(100%); }
+        }
+
+        /* Keyframe animation for logo reveal (fade in and scale) */
+        @keyframes logoFadeInScale {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Initial state for the image */
+        #animated-logo-image {
+            opacity: 0; /* Start hidden */
+            transform: scale(0.5); /* Start smaller */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for logo */
+            object-fit: cover; /* Ensures the image fills the circular container */
+            border-radius: 50%; /* Explicitly make the image itself circular */
+        }
+
+        /* Typing animation specific styles */
+        #logo-text {
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow during typing */
+            border-right: .15em solid transparent; /* Start with transparent border */
+             font-family: 'Inter', 'Kantumruy Pro','kulankoulen', sans-serif;
+            display: inline-block; /* Essential for width-based typing effect */
+            opacity: 0; /* Hidden by default, will be made visible by JS */
+            transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for opacity and color */
+            z-index: 15; /* Above shapes and logo */
+        }
+        .typing-cursor {
+            border-color: white; /* Show cursor */
+            animation: blink-caret .75s step-end infinite; /* Blinking cursor */
+        }
+        /* Keyframes for blinking caret */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+   

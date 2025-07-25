@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to TH Residence</title>
+    <!-- IMPORTANT: Base tag for GitHub Pages project sites -->
+    <!-- This tells the browser that all relative paths (like Image/profile.jpg or style.css) -->
+    <!-- should be resolved relative to the repository's root on GitHub Pages. -->
+    <base href="/th-residence-website/"> 
+
+    <!-- Tailwind CSS CDN link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts CDN links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&family=Kantumruy+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- AOS CSS CDN link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Link to your main stylesheet (if it contains general styles you want here too) -->
+    <link rel="stylesheet" href="index.css"> 
+    
+   
+</head>
+<body>
+
+    <!-- Splash Screen Section -->
+    <div id="splash-screen" class="fixed top-0 left-0 h-screen w-full bg-cover bg-center z-50 transition-opacity duration-1000 ease-in-out" style="background-image: url('Image/MASTER\ PLAN.jpg')">
+        <div class="absolute inset-0 bg-[#F5EFEB]"></div> 
+        
+        <div id="logo-animation-container" class="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
+            <!-- Reveal Shapes -->
+            <div class="reveal-shape reveal-left"></div>
+            <div class="reveal-shape reveal-right"></div>
+            
+            <!-- Image Logo wrapped for styling -->
+            <div class="logo-wrapper w-24 h-24 rounded-full mb-4 ">
+                <img id="animated-logo-image" src="Image/profile.jpg" alt="TH Residence Logo" class="w-full h-full object-cover"/>
+            </div>
+            <span id="logo-text" class="font-playfair text-white text-4xl md:text-5xl"></span> <!-- Text content typed by JS -->
+        </div>
+    </div>
+
+    <script>
+        // --- Animation Orchestration Script ---
+        
+        // Helper function for delays
+        const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        // Get elements from the DOM
+        const splashScreen = document.getElementById('splash-screen');
+        const revealLeft = document.querySelector('.reveal-left');
+        const revealRight = document.querySelector('.reveal-right');
+        const animatedLogoImage = document.getElementById('animated-logo-image');
+        const logoText = document.getElementById('logo-text');
+
+        const companyName = "TH RESIDENCE"; // The text to be typed
+
+        // Typing animation function
+        const typeText = async (element, text, delay = 100) => {
+            element.classList.add('typing-cursor'); // Show blinking cursor
+            element.textContent = ''; // Clear content before typing
+            element.style.opacity = '1'; // Ensure element is visible
+            for (let i = 0; i < text.length; i++) {
+                element.textContent += text.charAt(i);
+                await wait(delay);
+            }
+            element.classList.remove('typing-cursor'); // Remove blinking cursor after typing
+        };
+
+        // Main animation sequence to run on page load
+        const startAutomaticAnimation = async () => {
+            // 1. Trigger shape reveal animation
+            revealLeft.style.animation = 'slideOutLeft 1s ease-out forwards';
+            revealRight.style.animation = 'slideOutRight 1s ease-out forwards';
+            
+            await wait(800); // Wait for shapes to mostly slide out
+
+            // 2. Reveal the logo
+            animatedLogoImage.style.animation = 'logoFadeInScale 1s ease-out forwards';
+            
+            await wait(1000); // Wait for logo to fully appear
+
+            // 3. Start typing animation for the company name
+            await typeText(logoText, companyName, 100); // Type out "TH Residence"
+            
+            // Allow the user to see the animated logo and typed text for a moment
+            await wait(1500); 
+
+            // 4. Fade out the entire splash screen
+            splashScreen.style.opacity = '0';
+            // Wait for the fade-out transition to complete before redirecting
+            await wait(1000); // This duration should match the 'transition-opacity' on #splash-screen
+
+            // 5. Redirect to Home_Page.html
+            window.location.href = basename + 'Home_Page.html'; 
+        };
+
+        // Function to update relative paths (important for GitHub Pages base href)
+        const pathSegments = window.location.pathname.split('/');
+        const basename = pathSegments.length > 1 && pathSegments[1] === 'th-residence-website' ? '/th-residence-website/' : '/';
+
+        function updateRelativePaths(selector, attribute) {
+            document.querySelectorAll(selector).forEach(element => {
+                let currentPath = element.getAttribute(attribute);
+                if (currentPath && !currentPath.startsWith('http') && !currentPath.startsWith('/') && !currentPath.startsWith('#')) {
+                    element.setAttribute(attribute, basename + currentPath);
+                } else if (currentPath && currentPath.startsWith('./')) {
+                    const cleanedPath = currentPath.substring(2);
+                    if (cleanedPath === "") {
+                        element.setAttribute(attribute, basename);
+                    } else {
+                        element.setAttribute(attribute, basename + cleanedPath);
+                    }
+                }
+            });
+        }
+
+        // Apply path updates to various elements
+        updateRelativePaths('link[rel="stylesheet"]', 'href');
+        updateRelativePaths('img', 'src');
+
+        // Start the animation automatically when the DOM is fully loaded
+        window.addEventListener('DOMContentLoaded', startAutomaticAnimation);
+    </script>
+</body>
+</html>

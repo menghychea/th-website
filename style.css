@@ -1,0 +1,101 @@
+
+
+       
+         @import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap');
+       
+       /* Custom CSS for fade-in animation and smooth transitions */
+        .font-inter {
+               font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
+                                                
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 0.6s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Basic styling for the body to ensure full height and smooth scrolling */
+        body {
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth;
+            font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
+        }
+
+        /* Text shadow for better readability on images */
+        .text-shadow-lg {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Lucide icons are SVG, so we'll use inline SVG for them */
+        .icon-24 {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            transition: transform 0.3s ease-in-out;
+        }
+        .group:hover .icon-24 {
+            transform: scale(1.1);
+        }
+
+        /* Ensure the slider container takes full viewport height */
+        .full-screen-slider {
+            height: calc(100vh - 72px); /* Full viewport height minus navbar height (approx 72px) */
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Adjust image within full screen slider */
+        .full-screen-slider .aspect-video {
+            height: 100%; /* Make the image container take full height of its parent */
+            width: 100%;
+            border-radius: 0; /* Remove rounded corners for full screen */
+            box-shadow: none; /* Remove shadow for full screen */
+        }
+
+        /* Custom background for the OUR BUSINESS section */
+        .our-business-bg {
+            background-color: #3C0008; /* Original solid color */
+        }
+
+        /* Custom background for the STORY/VISION section */
+        .story-vision-bg {
+            background-image: url('Image/B02.png'); /* User's uploaded background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Custom styling for horizontal scroll on small screens */
+        .project-scroll-container {
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .project-scroll-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+        }
