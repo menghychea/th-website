@@ -213,6 +213,10 @@
     <script>
         // Initialize AOS
         AOS.init();
+         // Determine the base path for GitHub Pages
+        const pathSegments = window.location.pathname.split('/');
+        // Check if the repository name 'th-website' is in the path
+        const basename = pathSegments.includes('th-website') ? '/th-website/' : '/';
         
         // --- Navbar Logic ---
         const navItemsData = [
