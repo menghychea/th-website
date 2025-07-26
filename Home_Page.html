@@ -61,35 +61,21 @@
             </div>
 
             <!-- Navigation Dots - Positioned absolutely at the bottom center of the slider -->
-            <div id="slider-dots" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center space-x-3 z-10">
+            <div id="slider-dots" class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex justify-center space-x-3 z-5">
                 <!-- Dots will be dynamically populated by JavaScript -->
             </div>
         </div>
     </div>
 
     <!-- OUR BUSINESS Section -->
-    <section class="py-10 text-white our-business-bg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-8 text-center inline-block border-b-2 border-white animate-fade-in-up">OUR BUSINESS</h2>
-
-            <div class="flex flex-col md:flex-row md:space-x-8">
-                <!-- Left Column: Text Content -->
-                <div class="md:w-1/2 mb-8 md:mb-0 text-left">
-                  
-                    <p class="text-lg leading-relaxed mt-4 animate-fade-in-up delay-100">
-                        Whether it's selling your current home, vetting financing, or buying a new home, we make it easy and efficient. The best part? You'll save a bunch of money and time with our services.
-                    </p>
-                </div>
-                <!-- Right Column: Image Placeholder -->
-                <div class="md:w-1/2 flex justify-center items-center animate-fade-in-up delay-200">
-                    <img src="Image/our business.jpg" alt="Business placeholder image" class="w-full h-auto object-cover rounded-lg shadow-xl">
-                </div>
-            </div>
+    <section class=" relative overflow-hidden">
+        <div class=" mx-auto">
+            <img src ="Image/COVER-RD.jpg" alt="Our Business" class="w-full h-auto object-cover ">
         </div>
     </section>
 
     <!-- STORY / VISION Section -->
-    <section class="py-16 text-white story-vision-bg relative overflow-hidden">
+    <section class="py-10 text-white story-vision-bg relative overflow-hidden">
         <!-- Overlay for better text readability on background image -->
         <div class="absolute inset-0 bg-black opacity-40"></div>
 
@@ -97,7 +83,7 @@
             <div class="flex flex-col md:flex-row md:space-x-8">
                 <!-- Story Frame -->
                 <div class="md:w-1/2 bg-white bg-opacity-10 p-8 mb-8 md:mb-0 animate-fade-in-up delay-100">
-                    <h3 class="text-3xl font-bold mb-4 border-b-2 border-white pb-2 inline-block">STORY</h3>
+                    <h3 class="text-2xl font-bold mb-4 ">STORY</h3>
                     <div class="mt-4 mb-6 flex justify-center items-center h-48 bg-gray-200 rounded-md overflow-hidden">
                         <img src="Image/our story.jpg" alt="Story placeholder image" class="w-full h-full object-cover">
                     </div>
@@ -111,7 +97,7 @@
 
                 <!-- Vision Frame -->
                 <div class="md:w-1/2 bg-white bg-opacity-10 p-8 animate-fade-in-up delay-200">
-                    <h3 class="text-3xl font-bold mb-4 border-b-2 border-white pb-2 inline-block">VISION</h3>
+                    <h3 class="text-2xl font-bold mb-4 ">VISION</h3>
                     <div class="mt-4 mb-6 flex justify-center items-center h-48 bg-gray-200 rounded-md overflow-hidden">
                         <img src="Image/our vision .jpg" alt="Vision placeholder image" class="w-full h-full object-cover">
                     </div>
@@ -127,12 +113,12 @@
     </section>
 
    <!-- OUR PROJECT Section -->
-    <section id="properties-section" class="py-16 bg-white text-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">OUR PROJECT</h2>
+    <section id="properties-section" class="py-10 bg-white text-black">
 
-           <div class="max-w-7xl mx-auto px-4 py-8">
-                <div class="flex flex-nowrap md:grid md:grid-cols-2 gap-20 overflow-x-auto pb-4 hide-scrollbar md:justify-center">
+           <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold mb-8 border-gray-800 pb-2 animate-fade-in-up">OUR PROJECT</h2>
+
+                <div class="flex flex-nowrap md:grid md:grid-cols-2 gap-20 overflow-x-auto  hide-scrollbar md:justify-center">
                     <!-- Dong Kao I Card -->
                     <div class="bg-white overflow-hidden property-card flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width border border-gray-200" data-aos="fade-up" data-aos-duration="1000">
                         <img src="Image/MASTER PLAN.jpg" alt="Dong Kao I Project" class="w-full h-64 object-cover">
@@ -162,14 +148,14 @@
 
 
     <!-- ABOUT US Section -->
-    <section id="about-us-section" class="py-16 bg-white text-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
-            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
+    <section id="about-us-section" class="bg-white text-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl mb-8 font-bold animate-fade-in-up">ABOUT US</h2>
             <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
                 <!-- Left Column: Logo/Image and its Description -->
                 <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
-                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
-                        <img src="Image/profile.jpg" alt="Company Logo" class="max-w-full max-h-full object-contain">
+                    <div class=" flex justify-start items-center overflow-hidden p-1 mr-25" style="height: 200px;">
+                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain ">
                     </div>
                 </div>
 
@@ -230,9 +216,9 @@
     </section>
 
     <!-- TH Group of Companies Section -->
-    <section class="py-16 bg-gray-100 text-gray-800">
+    <section class="py-10 bg-gray-100 text-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-12 text-center inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">TH Group </h2>
+            <h2 class="text-2xl font-bold  text-start animate-fade-in-up">TH Group </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <!-- TH ADS -->
@@ -254,7 +240,7 @@
                 <!-- TH CHHEAN MUK -->
                 <div class="flex flex-col items-center text-center animate-fade-in-up delay-200">
                     <div class="w-48 h-48 flex items-center justify-center ">
-                        <img src="Image/ChheanMuk.png" alt="TH CHHEAN MUK" >
+                        <img src="Image/Chheanmuk.png" alt="TH CHHEAN MUK" >
                     </div>
                     <h3 class="text-2xl font-bold mb-2">TH Chhean Muk</h3>
                 </div>
@@ -267,10 +253,10 @@
     </section>
 
     <!-- LOCATION Section -->
-    <section id="contact-us-section" class="py-16 bg-white text-gray-800">
+    <section id="contact-us-section" class="py-10 bg-white text-gray-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">LOCATION</h2>
-            <p class="max-w-4xl mx-auto text-lg leading-relaxed text-center mb-12 animate-fade-in-up delay-100">
+            <h2 class="text-2xl font-bold animate-fade-in-up">LOCATION</h2>
+            <p class="max-w-4xl mx-auto text-lg leading-relaxed text-center mb-10 animate-fade-in-up delay-100">
                 Find us easily at our project site in Dong Kao I, Phnom Penh.
             </p>
 
@@ -289,7 +275,7 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-8 text-center">
+    <footer class="bg-gray-100 text-[#3C0008] py-8 text-center">
         <p>&copy; 2024 TH Residence. All rights reserved.</p>
     </footer>
 
@@ -317,7 +303,7 @@
                 a.className = 'flex items-center justify-center text-black font-semibold hover:text-[#3C0008] transition-colors duration-300 ease-in-out';
 
                 const iconSpan = document.createElement('span');
-                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
+                iconSpan.className = 'icon-500 transition-transform duration-300 ease-in-out';
                 iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
 
                 const textSpan = document.createElement('span');
@@ -338,15 +324,7 @@
                     textSpan.classList.add('hidden');
                 });
 
-                // Underline effect for active page (or HOME by default)
-                // This will highlight the HOME link by default or the relevant section if scrolling to it
-                const currentPath = window.location.pathname.split('/').pop();
-                if (item.href.includes(currentPath) || (item.id === 'home' && currentPath === '')) { // Highlight Home if on root or Home_Page.html
-                    const underline = document.createElement('div');
-                    underline.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#3C0008] rounded-full';
-                    li.appendChild(underline);
-                }
-
+               
                 navMenu.appendChild(li);
             });
         }
@@ -407,7 +385,7 @@
             sliderDots.innerHTML = ''; // Clear existing dots
             images.forEach((_, index) => {
                 const button = document.createElement('button');
-                button.className = `w-4 h-4 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#3C0008] ${
+                button.className = `w-2 h-2 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#3C0008] ${
                     currentIndex === index ? 'bg-[#3C0008] scale-125' : 'bg-white hover:bg-[#3C0008]'
                 }`;
                 button.setAttribute('aria-label', `Go to image ${index + 1}`);

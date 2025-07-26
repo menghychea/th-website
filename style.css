@@ -190,11 +190,6 @@ body::before {
     transform: scale(1.1);
 }
 
-/* Custom background for the OUR BUSINESS section */
-.our-business-bg {
-    background-color: #3C0008; /* Original solid color */
-}
-
 /* Custom background for the STORY/VISION section */
 .story-vision-bg {
     background-image: url('Image/B02.png'); /* User's uploaded background image */
