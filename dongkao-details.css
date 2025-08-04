@@ -10,6 +10,9 @@ body {
     position: relative;
     z-index: 0;
 }
+.navbar-hidden {
+    transform: translateY(-100%) !important; /* Added !important to ensure precedence */
+}
 
 /* Full page background image with blur */
 body::before {
@@ -278,56 +281,81 @@ body.modal-open {
 }
 
 /* Styles for Navbar items (copied from user's provided style.css) */
-.icon-24 {
+/* Re-defined for better control and specificity */
+.nav-item-link {
+    /* Ensure flex container for icon and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For the underline effect */
+}
+
+.nav-item-icon-wrapper {
+    /* Default state: visible icon */
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-item-icon-wrapper .icon-24 {
     width: 24px;
     height: 24px;
 }
-.group .icon-24 {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-.group:hover .icon-24 {
-    transform: scale(1.1);
+
+.nav-item-text-wrapper {
+    /* Default state: hidden text */
     opacity: 0;
-    display: none;
-}
-.group span.text-lg {
-    display: none; /* Hidden by default */
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-.group:hover span.text-lg {
-    display: inline-block; /* Show on hover */
-    opacity: 1;
-}
-.group:hover a {
-    color: #3c0008; /* Hover color for the link text */
-}
-.group.active-link .icon-24 {
-    display: none;
-}
-.group.active-link span.text-lg {
-    display: inline-block;
-    opacity: 1;
-    color: #3c0008; /* Active link text color */
-}
-.group.active-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute; /* Position text over icon area */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 50%; /* Adjust width as needed */
-    height: 2px;
-    background-color: #3C0008; /* Color from Home_Page.html JS */
-    border-radius: 9999px;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* Show underline on hover for Home link */
-.nav-link-item.home-link:hover::after {
-    opacity: 1;
+/* Hover effects for desktop */
+.nav-item-link:hover .nav-item-icon-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8); /* Subtle zoom out for icon */
 }
+
+.nav-item-link:hover .nav-item-text-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1); /* Show text */
+}
+
+/* Active link state (for both desktop and mobile) */
+.nav-item-link.active-link .nav-item-icon-wrapper {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-item-link.active-link .nav-item-text-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    color: #3c0008; /* Active link text color */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Underline effect for active page on desktop - REMOVED */
+/*
+.nav-item-link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background-color: #3C0008;
+    border-radius: 9999px;
+    opacity: 1;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+*/
 
 /* Styles for property cards */
 .property-card {
@@ -336,7 +364,7 @@ body.modal-open {
     display: flex; /* Ensures flex properties are active */
     flex-direction: column; /* Stacks content vertically */
     /* Added padding-bottom to ensure space for the button */
-    padding-bottom: 0; 
+    padding-bottom: 0;
 }
 
 /* Ensure images within cards have a fixed height for consistent layout */
@@ -348,8 +376,8 @@ body.modal-open {
 }
 
 /* Custom font for Khmer text */
-.font-khmer { 
-    font-family: 'Kantumruy Pro', sans-serif; 
+.font-khmer {
+    font-family: 'Kantumruy Pro', sans-serif;
 }
 
 /* Hide scrollbar for a cleaner look, but still allow scrolling */

@@ -1,201 +1,278 @@
+/* Base styles for body */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll for the main body */
+    font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
+    background-color: #f3f4f6; /* Fallback background color */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    z-index: 0;
+    scroll-padding-top: 72px; /* Ensures content isn't hidden by the fixed header when scrolling to an ID */
+}
 
-        /* Base styles for body */
-        body {
-            overflow-x: hidden; /* Prevent horizontal scroll for the main body */
-            font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
-            background-color: #f3f4f6; /* Fallback background color */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            z-index: 0;
-        }
+/* Full page background image with blur */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); /* Maintain original blur amount */
+    z-index: -1;
+}
 
-        /* Full page background image with blur */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            filter: blur(2px); /* Maintain original blur amount */
-            z-index: -1;
-        }
+/* Reusing common styles from shophouse.css for consistency */
+.section-padding {
+    padding-top: 4rem; /* py-16 */
+    padding-bottom: 4rem; /* py-16 */
+}
+.image-caption {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-600 */
+}
+.plan-image-container, .interior-image-container {
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden; /* Ensures image fits */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+.plan-image-container img, .interior-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.25rem; /* rounded */
+    cursor: pointer; /* Indicate clickable */
+    transition: transform 0.2s ease-in-out; /* For hover effect */
+}
+.plan-image-container img:hover, .interior-image-container img:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
 
-        /* Reusing common styles from shophouse.css for consistency */
-        .section-padding {
-            padding-top: 4rem; /* py-16 */
-            padding-bottom: 4rem; /* py-16 */
-        }
-        .image-caption {
-            font-size: 0.875rem; /* text-sm */
-            color: #6b7280; /* text-gray-600 */
-        }
-        .plan-image-container, .interior-image-container {
-            border-radius: 0.5rem; /* rounded-lg */
-            overflow: hidden; /* Ensures image fits */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-        }
-        .plan-image-container img, .interior-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 0.25rem; /* rounded */
-            cursor: pointer; /* Indicate clickable */
-            transition: transform 0.2s ease-in-out; /* For hover effect */
-        }
-        .plan-image-container img:hover, .interior-image-container img:hover {
-            transform: scale(1.02); /* Slight zoom on hover */
-        }
+/* Modal Styles (reused from shophouse details) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+body.modal-open {
+    overflow: hidden;
+}
+.modal-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1010;
+    transition: background-color 0.3s ease;
+}
+.modal-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-nav-button.left {
+    left: 1rem;
+}
+.modal-nav-button.right {
+    right: 1rem;
+}
+.modal-nav-button.hidden {
+    display: none;
+}
 
-        /* Modal Styles (reused from shophouse details) */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-        .modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            transform: scale(0.8);
-            transition: transform 0.3s ease-in-out;
-        }
-        .modal-overlay.open .modal-content {
-            transform: scale(1);
-        }
-        body.modal-open {
-            overflow: hidden;
-        }
-        .modal-nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 1010;
-            transition: background-color 0.3s ease;
-        }
-        .modal-nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .modal-nav-button.left {
-            left: 1rem;
-        }
-        .modal-nav-button.right {
-            right: 1rem;
-        }
-        .modal-nav-button.hidden {
-            display: none;
-        }
+/* Carousel specific styles (reused from shophouse details) */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Default for small screens */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+@media (min-width: 640px) { /* sm breakpoint */
+    .carousel-container {
+        height: 400px;
+    }
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .carousel-container {
+        height: 500px;
+    }
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    .carousel-container {
+        height: 600px;
+    }
+}
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+.carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.carousel-nav-button.left {
+    left: 1rem;
+}
+.carousel-nav-button.right {
+    right: 1rem;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+.carousel-indicators .indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carousel-indicators .indicator-dot.active {
+    background-color: white;
+}
 
-        /* Carousel specific styles (reused from shophouse details) */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 300px; /* Default for small screens */
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        @media (min-width: 640px) { /* sm breakpoint */
-            .carousel-container {
-                height: 400px;
-            }
-        }
-        @media (min-width: 768px) { /* md breakpoint */
-            .carousel-container {
-                height: 500px;
-            }
-        }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .carousel-container {
-                height: 600px;
-            }
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-        .carousel-slide {
-            flex: 0 0 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .carousel-nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            padding: 0.75rem;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .carousel-nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .carousel-nav-button.left {
-            left: 1rem;
-        }
-        .carousel-nav-button.right {
-            right: 1rem;
-        }
-        .carousel-indicators {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-            z-index: 10;
-        }
-        .carousel-indicators .indicator-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .carousel-indicators .indicator-dot.active {
-            background-color: white;
-        }
 
-       
-        /* Floor Plans Grid Centering */
-        .floor-plans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax as needed */
-            gap: 1.5rem; /* gap-6 from Tailwind */
-            justify-items: center; /* Centers items within their grid cells */
-            justify-content: center; /* Centers the grid itself if there's extra space */
-        }
+/* Styles for Navbar items (copied from style.css for consistency) */
+/* Re-defined for better control and specificity */
+.nav-item-link {
+    /* Ensure flex container for icon and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For the underline effect */
+}
+
+.nav-item-icon-wrapper {
+    /* Default state: visible icon */
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-item-icon-wrapper .icon-24 {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item-text-wrapper {
+    /* Default state: hidden text */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute; /* Position text over icon area */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Hover effects for desktop */
+.nav-item-link:hover .nav-item-icon-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8); /* Subtle zoom out for icon */
+}
+
+.nav-item-link:hover .nav-item-text-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1); /* Show text */
+}
+
+/* Active link state (for both desktop and mobile) */
+.nav-item-link.active-link .nav-item-icon-wrapper {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-item-link.active-link .nav-item-text-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    color: #3c0008; /* Active link text color */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Underline effect for active page on desktop - REMOVED */
+/*
+.nav-item-link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background-color: #3C0008;
+    border-radius: 9999px;
+    opacity: 1;
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+*/
+
+/* Floor Plans Grid Centering */
+.floor-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax as needed */
+    gap: 1.5rem; /* gap-6 from Tailwind */
+    justify-items: center; /* Centers items within their grid cells */
+    justify-content: center; /* Centers the grid itself if there's extra space */
+}

@@ -17,320 +17,422 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="dongkao-details.css"> <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="style.css"> <!-- Link to global style.css for shared styles -->
 
 
 </head>
 
-<body class="flex flex-col min-h-screen" style="padding-top: 72px;"> <!-- Added padding-top for fixed header -->
+<body class="flex flex-col min-h-screen"> 
 
-    <!-- Navbar - Copied from home.html -->
-    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50">
-        <div class="flex items-center space-x-2 p-2 rounded-md">
-            <img src="Image/profile.jpg" alt="Company Logo" class="h-10 w-10 rounded-full">
-            <span class="text-2xl font-bold text-black">TH RESIDENCE</span>
+    <!-- Navbar - Updated to match Home_Page.html -->
+    <nav id="main-navbar" class="bg-white py-5 px-4 shadow-md flex justify-between items-center flex-wrap fixed w-full z-50 md:justify-between transition-all duration-300 ease-in-out top-0">
+        <div class="flex items-center space-x-8 rounded-md px-8">
+         <img src="Image/Asset 1@3x.png" alt="Company Logo" class="h-10 w-10 rounded-full">
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-black hover:text-[#3C0008] focus:outline-none focus:ring-2 focus:ring-[#3C0008] rounded-md p-2">
+            <button id="mobile-menu-button" class="text-black hover:text-[#3c0008] focus:outline-none focus:ring-2 focus:ring-[#3c0008]  ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
 
-        <!-- Desktop and Mobile Menu -->
-        <ul id="nav-menu" class="w-full md:w-auto md:flex md:space-x-8 mt-4 md:mt-0 hidden md:block">
+        <!-- Desktop Menu (always visible on md and larger) -->
+        <ul id="nav-menu-desktop" class="hidden md:flex md:space-x-0 flex-col md:flex-row">
             <!-- Nav items will be dynamically populated by JavaScript -->
         </ul>
     </nav>
 
-    <main class="flex-grow w-full py-8 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 properties-section">
-            <div id="project-dongkoa-i-section" class="project-dongkoa-bg w-full py-6 text-center text-[#3C0008] text-3xl sm:text-2xl md:text-5xl font-extrabold" data-aos="fade-up" data-aos-duration="1000">
-                PROJECT DONGKOA I
-            </div>     
-            
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="flex flex-nowrap md:grid md:grid-cols-2 gap-20 overflow-x-auto pb-4 hide-scrollbar md:justify-center">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
+
+    <!-- Mobile Side Drawer Menu -->
+    <div id="nav-menu-mobile" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-4 flex justify-end">
+            <button id="mobile-menu-close-button" class="text-black hover:text-[#3c0008] focus:outline-none focus:ring-2 focus:ring-[#3c0008] rounded-md ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <ul class="flex flex-col space-y-2">
+            <!-- Mobile nav items will be dynamically populated by JavaScript -->
+        </ul>
+    </div>
+
+
+    <main class="flex-grow w-full mb-3 bg-gray-100">
+        <div class="max-w-6xl mx-auto px:4  properties-section">
+            <div id="project-dongkoa-i-section" class=" w-full  text-center text-[#3C0008] text-[18px] md:text-[20px] font-extrabold mt-3 mb-3" data-aos="fade-up" data-aos-duration="1000">
+                <span class="khmer-text">គម្រោងដង្កោI</span> | <span class="english-text">PROJECT DONGKOA I</span>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
+                   <div class="flex flex-nowrap md:grid md:grid-cols-2 gap-20 overflow-x-auto hide-scrollbar md:justify-center ">
                     <!-- Shophouse Card -->
-                     <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                     <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width border border-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                         <!-- Placeholder for Shophouse image -->
                         <img src="Image/SHOPHOUSE_EVENING_VIEW022.jpg" alt="Shophouse" class="w-full h-64 object-cover">
-                        <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div class="p-4 flex-grow flex flex-col justify-between ">
                             <div>
-                                <h3 class="text-2xl font-bold text-black-200 mb-2">SHOPHOUSE | ផ្ទះអាជីវកម្ម</h3>
-                                <div class="flex items-center text-black mb-2">
-                                    <i class="fa-solid fa-bed w-5 h-5 mr-2 text-black"></i>
-                                    <span>5 Bedrooms</span>
-                                </div>
-                                <div class="flex items-center text-black mb-2">
-                                    <i class="fa-solid fa-bath w-5 h-5 mr-2 text-black"></i>
-                                    <span>6 Bathrooms</span>
-                                </div>
-                                <div class="flex items-center text-black mb-4">
-                                    <i class="fa-solid fa-dollar-sign w-5 h-5 mr-2 text-black"></i>
-                                    <span class="font-bold text-[#3c0008]">800$</span><span class="text-sm ml-1">/ខែ</span>
-                                </div>
-                                <div class="flex items-center text-black mb-4">
-                                    <svg class="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    <span>Dong Kao I, Phnom Penh</span>
+                                <h3 class="text-[18px] md:text-[20px]  text-black"><span class=" khmer-text"> ផ្ទះអាជីវកម្ម </span> | <span class="english-text"> SHOPHOUSE </span></h3>
+                                <!-- Two-column layout for details -->
+                                <div class="grid grid-cols-2 gap-4 text-black ">
+                                    <!-- Left Column for Bedrooms and Bathrooms -->
+                                    <div class="flex flex-col mt-4">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-bed w-4 h-4 mr-2 text-[#3C0008]"></i>
+                                            <h2 class="text-[12px] md:text-[14px]"><span class="english-text">5 Bedroom</span></h2>
+                                        </div>
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-bath w-4 h-4 mr-2 text-[#3C0008]"></i>
+                                            <h2 class="text-[12px] md:text-[14px]"><span class="english-text">6 Bathrooms</span></h2>
+                                        </div>
+                                    </div>
+                                    <!-- Right Column for Price and Location -->
+                                    <div class="flex flex-col mt-4">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-dollar-sign w-5 h-5 mr-1 text-[#3C0008]"></i>
+                                            <span class="text-[12px] md:text-[14px] font-bold text-[#3c0008]"><span class="english-text">$800</span></span><span  class="text-[12px] md:text-[14px] ml-1 khmer-text">/ខែ</span>
+                                        </div>
+                                        <div class="flex items-center mb-2">
+                                            <svg class="w-4 h-4 mr-2 text-[#3C0008]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                            <h2 class="text-[12px] md:text-[14px]"><span class="english-text">Dong Kao I, Phnom Penh</span></h2>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="shophouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button">More Details</a>
+                            <a href="shophouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button text-[12px] md:text-[14px]">More Details</a>
                         </div>
                     </div>
 
                     <!-- Link House Card -->
-                    <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="bg-white  flex flex-col flex-shrink-0 w-[90vw] sm:w-[calc(50vw-2.5rem)] lg:w-auto md:max-w-none card-min-width border border-gray-200" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                         <!-- Placeholder for Link House image -->
                         <img src="Image/LINK HOUSE_EVENING_VIEW055.jpg" alt="Link House" class="w-full h-64 object-cover">
-                        <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="p-4 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="text-2xl font-bold text-black mb-2 ">LINK HOUSE | លីងហោ៍ស </h3>
-                                <div class="flex items-center text-black mb-2">
-                                    <i class="fa-solid fa-bed w-5 h-5 mr-2 text-black"></i>
-                                    <span>4 Bedrooms</span>
-                                </div>
-                                <div class="flex items-center text-black mb-2">
-                                    <i class="fa-solid fa-bath w-5 h-5 mr-2 text-black"></i>
-                                    <span>5 Bathrooms</span>
-                                </div>
-                                <div class="flex items-center text-black mb-4">
-                                    <i class="fa-solid fa-dollar-sign w-5 h-5 mr-2 text-black"></i>
-                                    <span class="font-bold text-[#3C0008]">600$</span><span class="text-sm ml-1">/ខែ</span>
-                                </div>
-                                <div class="flex items-center text-black mb-4">
-                                    <svg class="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    <span>Dong Kao I, Phnom Penh</span>
+                                <h3 class="text-[18px] md:text-[20px]  text-black "><span class="khmer-text"> លីងហោ៍ស</span> | <span class="english-text">LINK HOUSE</span> </h3>
+                                <!-- Two-column layout for details -->
+                                <div class="grid grid-cols-2 gap-4 text-black mb-4">
+                                    <!-- Left Column for Bedrooms and Bathrooms -->
+                                    <div class="flex flex-col mt-4">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-bed w-4 h-4 mr-2 text-[#3C0008]"></i>
+                                            <h2 class="text-[12px] md:text-[14px]"><span class="english-text">4 Bedroom</span></h2>
+                                        </div>
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-bath w-4 h-4 mr-2 text-[#3C0008]"></i>
+                                            <h2 class="text-[12px] md:text-[14px]"><span class="english-text">5 Bathroom</span></h2>
+                                        </div>
+                                    </div>
+                                    <!-- Right Column for Price and Location -->
+                                    <div class="flex flex-col mt-4">
+                                        <div class="flex items-center mb-2">
+                                            <i class="fa-solid fa-dollar-sign w-5 h-5 mr-1 text-[#3C0008]"></i>
+                                            <span class="text-[12px] md:text-[14px] font-bold text-[#3C0008]"><span class="english-text">$600</span></span><span class="text-[12px] md:text-[14px] ml-1 khmer-text">/ខែ</span>
+                                        </div>
+                                        <div class="flex items-center mb-2">
+                                            <svg class="w-4 h-4 mr-2 text-[#3C0008]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                             <h2 class="text-[12px] md:text-[14px]"><span class="english-text">Dong Kao I, Phnom Penh</span></h2>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="Linkhouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button">More Details</a>
+                            <a href="Linkhouse-details.html" class="mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition duration-300 ease-in-out more-details-button text-[12px] md:text-[14px]">More Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
         </div>
     </main>
-
-    <!-- ABOUT US Section (Copied from Home_Page.html for consistency) -->
-    <section class="py-10 bg-white text-black">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
-            <h2 class="text-2xl font-bold mb-8 border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
-            <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
-                <!-- Left Column: Logo/Image and its Description -->
-                <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
-                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
-                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
-                    </div>
-                </div>
-
-                <!-- Right Column: Main About Us text + Follow Us & Contact Us -->
-                <div class="md:w-1/2 text-left animate-fade-in-up delay-100">
-                    <p class="text-lg leading-relaxed mb-8">
-                        TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
+   <!-- ABOUT US Section -->
+    <section id="about-us-section" class="bg-white text-black py-3">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Column 1: About Us -->
+                <div class="animate-fade-in-up delay-200">
+                    <h2 class="text-[18px] md:text-[20px] mb-3 font-bold">ABOUT US</h2>
+                    <img src="Image/logo.png" alt="Company Logo" class="w-28 h-28 md:w-40 md:h-40 object-contain object-left mb-4">
+                    <p class="text-[12px] md:text-[14px] leading-relaxed text-justify">
+                        TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. 
+                        We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
                     </p>
+                </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-300">
-                        <!-- Follow Us Card -->
-                        <div class="bg-white border-gray-100 text-left flex flex-col items-start">
-                            <h3 class="text-xl font-bold text-black mb-3 pb-2 border-b border-gray-200 w-full">FOLLOW US</h3>
-                            <div class="flex justify-start space-x-6 mt-2">
-                                <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-facebook text-3xl"></i>
-                                </a>
-                                <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-telegram text-3xl"></i>
-                                </a>
-                                <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-instagram text-3xl"></i>
-                                </a>
-                                <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-tiktok text-3xl"></i>
-                                </a>
-                            </div>
-                        </div>
-                    
-                        <!-- Contact Us (Email & General) Card -->
-                        <div class="bg-white  border-gray-100 text-left flex flex-col items-start">
-                            <h3 class="text-xl font-bold text-black mb-3 pb-2 border-b border-gray-200 w-full">CONTACT US</h3>
-                            <p class="text-gray-700 text-sm leading-normal flex items-start">
-                                <i class="fa-solid fa-envelope text-gray-500 mr-3 mt-1"></i>
-                                <a href="mailto:thresidence.socialmedia@gmail.com" class="text-gray-700 hover:text-[#3c0008] transition duration-300">thresidence.socialmedia@gmail.com</a>
-                            </p>
-                            <p class="text-gray-700 text-sm leading-normal flex items-center mt-2">
-                                <i class="fa-solid fa-phone text-gray-500 mr-3"></i>
-                                <a href="tel:+85598765432" class="text-gray-700 hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
-                            </p>
-                            <p class="text-gray-700 text-xs leading-normal flex items-start mt-2">
-                                <i class="fa-solid fa-location-dot text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
-                                <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-gray-700 hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
-                            </p>
-                        </div>
+                <!-- Column 2: Contact Us -->
+                <div class="animate-fade-in-up delay-100">
+                     <!-- Contact Us Card -->
+                    <div class="bg-white border-gray-100 text-left flex flex-col items-start ">
+                        <h2 class="text-[18px] md:text-[20px] font-bold text-black mb-3  w-[150px]">CONTACT US</h2>
+                        <p class="text-gray-700 text-[12px] md:text-[14px] leading-normal flex items-start">
+                            <i class="fa-solid fa-envelope text-[#3C0008] mr-3 mt-1"></i>
+                            <a href="mailto:thresidence.socialmedia@gmail.com" class="text-gray-700 hover:text-[#3c0008] transition duration-300">thresidence.socialmedia@gmail.com</a>
+                        </p>
+                        <p class="text-gray-700 text-[12px] md:text-[14px] leading-normal flex items-center mt-2">
+                            <i class="fa-solid fa-phone text-[#3C0008] mr-3"></i>
+                            <a href="tel:+85598765432" class="text-gray-700 hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
+                        </p>
+                        <p class="text-gray-700 text-[12px] md:text-[14px] leading-normal flex items-start mt-2">
+                            <i class="fa-solid fa-location-dot text-[#3C0008] mr-3 mt-1 flex-shrink-0"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-gray-700 hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
+                        </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Email Subscription -->
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400">
-                <input type="email" placeholder="Enter your email address" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-500">
-                <button class="bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
-                    Subscribe
-                </button>
+                <!-- Column 3: Follow Us -->
+                <div class="max-w-4xl animate-fade-in-up delay-300">
+                    <!-- Follow Us Card -->
+                    <div class="bg-white border-gray-100 text-left flex flex-col items-start mb-8">
+                        <h2 class="text-[18px] md:text-[20px] font-bold text-black mb-3  w-[125px]">FOLLOW US</h2>
+                        <div class="flex justify-start space-x-3 ">
+                            <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook">
+                                <img src="Image/facebook.png" alt="Facebook Logo" class="h-6 w-6">
+                            </a>
+                            <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" >
+                                 <img src="Image/Telegram.png" alt="Telegram Logo" class="h-6 w-6">
+                            </a>
+                            <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                <img src="Image/Instagram.png" alt="Instagram Logo" class="h-6 w-6">
+                            </a>
+                            <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                <img src="Image/TikTok.png" alt="TikTok Logo" class="h-6 w-6">
+                            </a>
+                            <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
+                                <img src="Image/Youtube.png" alt="Youtube Logo" class="h-6 w-6">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Email Subscription Form -->
+                     <div class="animate-fade-in-up delay-400">
+                         <h2 class="text-[18px] md:text-[20px] font-bold text-black mb-3  w-[125px]">SUBSCRIBE</h2>
+                         <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                             <input type="email" placeholder="Email" class="w-full px-4 py-2 text-sm rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3C0008] text-[#3C0008] placeholder-[#3C0008]">
+                             <button class=" text-[12px] md:text-[14px] w-full sm:w-auto mt-4 bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out font-semibold">
+                                 Subscribe
+                             </button>
+                         </div>
+                     </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- LOCATION Section (Copied from Home_Page.html for consistency) -->
-    <section class="py-10 bg-white text-black">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold animate-fade-in-up">LOCATION</h2>
-            <p class="max-w-4xl mx-auto text-lg leading-relaxed text-center mb-12 animate-fade-in-up delay-100">
+    <!-- LOCATION Section -->
+    <section id="contact-us-section" class=" bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">
+            <h2 class="text-[18px] md:text-[20px] font-bold animate-fade-in-up mb-3 mt-3">LOCATION</h2>
+            <p class=" mx-auto text-[12px] md:text-[14px] leading-relaxed text-start mb-3 animate-fade-in-up delay-100">
                 Find us easily at our project site in Dong Kao I, Phnom Penh.
             </p>
 
-            <div class="relative w-full h-96 rounded-lg overflow-hidden shadow-xl animate-fade-in-up delay-200">
+            <div class="relative w-full h-72 md:h-96 rounded-lg overflow-hidden shadow-xl animate-fade-in-up delay-200 map-container">
                 <!-- Google Maps Embed (replace with your actual embed code for precise location) -->
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.6138647434677!2d104.85387224334742!3d11.507753216226236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109518124b3895b%3A0xaa92d9552d0aa78e!2sTH%20Residence%20Dangkoa%20I!5e0!3m2!1sen!2skh!4v1753426537479!5m2!1sen!2skh"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.6138643405257!2d104.8561575109335!3d11.50775324523091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109518124b3895b%3A0xaa92d9552d0aa78e!2sTH%20Residence%20Dangkoa%20I!5e0!3m2!1sen!2skh!4v1754099188944!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-100 text-[#3C0008] py-8 text-center">
-        <p>&copy; 2024 TH Residence. All rights reserved.</p>
+    <footer class="bg-gray-100 text-[#3C0008] py-8 text-center text-[12px] md:text-[14px]">
+        <p>© <span id="current-year-footer"></span> TH Residence. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
         AOS.init();
-    
-        
-       // --- Navbar Logic - Copied from home.html ---
+
+        // --- Navbar Logic - Copied and adapted from Home_Page.html ---
         const navItemsData = [
-            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
-            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#our-project-section' },
-            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'index.html#about-us-section' },
-            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#media' },
+            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
+            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#properties-section' },
+            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'Home_Page.html#about-us-section' },
+            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#th-group-section' },
         ];
 
-        const navMenu = document.getElementById('nav-menu');
+        const navMenuDesktop = document.getElementById('nav-menu-desktop');
+        const navMenuMobile = document.getElementById('nav-menu-mobile');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mainNavbar = document.getElementById('main-navbar'); // Get the navbar element
+
+        let lastScrollY = 0; // To store the last scroll position
 
         // Function to render navigation items
         function renderNavItems() {
-            navMenu.innerHTML = ''; // Clear existing items
+            // Clear existing items for both menus
+            navMenuDesktop.innerHTML = '';
+            navMenuMobile.querySelector('ul').innerHTML = ''; // Select the ul inside the mobile menu
+
+            const isMobileView = window.innerWidth < 768;
+
             navItemsData.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'relative group p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100';
+                // Create desktop list item
+                const liDesktop = document.createElement('li');
+                liDesktop.className = 'relative group transition-all duration-300 ease-in-out hover:bg-gray-100 flex items-center justify-center min-w-[120px] h-[40px]';
 
-                const a = document.createElement('a');
-                a.href = item.href; // Use item.href for navigation
-                a.className = 'flex items-center justify-center text-gray-700 font-semibold hover:text-[#3c0008] transition-colors duration-300 ease-in-out'; // Changed hover color
+                const aDesktop = document.createElement('a');
+                aDesktop.href = item.href;
+                aDesktop.className = 'relative group flex items-center justify-center text-black font-semibold hover:text-[#3C0008] transition-colors duration-300 ease-in-out w-[100px] h-full';
 
-                const iconSpan = document.createElement('span');
-                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
-                iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
+                const iconWrapperDesktop = document.createElement('span');
+                iconWrapperDesktop.className = `icon-wrapper absolute inset-0 flex items-center justify-center w-100 h-full transition-opacity duration-300 ease-in-out opacity-100 pointer-events-auto`;
+                const iconSpanDesktop = document.createElement('span');
+                iconSpanDesktop.className = 'icon-20';
+                iconSpanDesktop.innerHTML = item.iconSvg;
+                iconWrapperDesktop.appendChild(iconSpanDesktop);
 
-                const textSpan = document.createElement('span');
-                textSpan.className = 'text-lg hidden'; // Initially hidden
-                textSpan.textContent = item.text;
+                const textWrapperDesktop = document.createElement('span');
+                textWrapperDesktop.className = `text-wrapper absolute inset-0 flex items-center justify-center w-full h-full transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none`;
+                const textSpanDesktop = document.createElement('span');
+                textSpanDesktop.className = 'text-[12px] md:text-[12px] font-semibold';
+                textSpanDesktop.textContent = item.text;
+                textWrapperDesktop.appendChild(textSpanDesktop);
 
-                a.appendChild(iconSpan);
-                a.appendChild(textSpan);
-                li.appendChild(a);
+                aDesktop.appendChild(iconWrapperDesktop);
+                aDesktop.appendChild(textWrapperDesktop);
+                liDesktop.appendChild(aDesktop);
 
-                // Add hover/click effect
-                li.addEventListener('mouseenter', () => {
-                    iconSpan.classList.add('hidden');
-                    textSpan.classList.remove('hidden');
+                liDesktop.addEventListener('mouseenter', () => {
+                    iconWrapperDesktop.classList.remove('opacity-100');
+                    iconWrapperDesktop.classList.add('opacity-0');
+                    textWrapperDesktop.classList.remove('opacity-0', 'pointer-events-none');
+                    textWrapperDesktop.classList.add('opacity-100');
                 });
-                li.addEventListener('mouseleave', () => {
-                    iconSpan.classList.remove('hidden');
-                    textSpan.classList.add('hidden');
+                liDesktop.addEventListener('mouseleave', () => {
+                    iconWrapperDesktop.classList.remove('opacity-0');
+                    iconWrapperDesktop.classList.add('opacity-100');
+                    textWrapperDesktop.classList.remove('opacity-100');
+                    textWrapperDesktop.classList.add('opacity-0', 'pointer-events-none');
                 });
+                navMenuDesktop.appendChild(liDesktop);
 
-                // Underline effect for active page (optional, for current page highlighting)
-                // This logic needs to be more robust for multi-page sites,
-                // but for now, we can highlight 'home' if on index.html
-                if (window.location.pathname.includes(item.href.split('#')[0]) && item.href.split('#')[0] !== '') {
-                     const underline = document.createElement('div');
-                     underline.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#3c0008] rounded-full';
-                     li.appendChild(underline);
+
+                // Create mobile list item
+                const liMobile = document.createElement('li');
+                liMobile.className = 'p-3 hover:bg-gray-100 rounded-md transition-colors duration-200 ease-in-out'; // Simpler styling for mobile
+                const aMobile = document.createElement('a');
+                aMobile.href = item.href;
+                aMobile.className = 'flex items-center space-x-4 text-black font-semibold text-[12px] md:text-[12px] hover:text-[#3C0008]'; // Always show text on mobile menu
+
+                const iconMobile = document.createElement('span');
+                iconMobile.className = 'icon-20';
+                iconMobile.innerHTML = item.iconSvg;
+                aMobile.appendChild(iconMobile);
+
+                const textMobile = document.createElement('span');
+                textMobile.textContent = item.text;
+                aMobile.appendChild(textMobile);
+
+                liMobile.appendChild(aMobile);
+                navMenuMobile.querySelector('ul').appendChild(liMobile);
+
+                // On mobile, clicking a nav item should close the menu
+                if (isMobileView) {
+                    liMobile.addEventListener('click', () => {
+                        closeMobileMenu();
+                    });
                 }
-
-
-                navMenu.appendChild(li);
             });
         }
 
+        // Function to open mobile menu
+        function openMobileMenu() {
+            navMenuMobile.classList.remove('translate-x-full');
+            navMenuMobile.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => mobileMenuOverlay.classList.remove('opacity-0'), 10); // Delay for transition
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling body when menu is open
+        }
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+            navMenuMobile.classList.remove('translate-x-0');
+            navMenuMobile.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('opacity-0');
+            mobileMenuOverlay.addEventListener('transitionend', function handler() {
+                mobileMenuOverlay.classList.add('hidden');
+                mobileMenuOverlay.removeEventListener('transitionend', handler);
+            });
+            document.body.classList.remove('overflow-hidden'); // Allow body scrolling
+        }
+
         // Toggle mobile menu
-        mobileMenuButton.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-            navMenu.classList.toggle('block');
-        });
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking overlay
 
-        // Initial render of nav items
-        document.addEventListener('DOMContentLoaded', () => {
+        // Listen for resize events to adjust nav item rendering and menu state
+        window.addEventListener('resize', () => {
             renderNavItems();
+            if (window.innerWidth >= 768) {
+                closeMobileMenu(); // Ensure mobile menu is closed on desktop view
+            }
         });
-        // --- Shophouse Main Carousel Logic ---
-        // (This section is not directly used in dongkao-details.html as it doesn't have a main carousel)
-        // However, keeping the structure in case it's needed for future expansion or if this file evolves.
-        const shophouseCarousel = document.getElementById('shophouse-carousel');
-        const shophousePrevButton = document.getElementById('shophouse-prev');
-        const shophouseNextButton = document.getElementById('shophouse-next');
-        const shophouseIndicatorsContainer = document.getElementById('shophouse-indicators');
 
-       const shophouseImages = [
-            "Image/SHOPHOUSE_EVENING_VIEW022.jpg", // Original Shophouse image
-            "Image/TH_SHOPHOUSE V05.jpg", // Living Room
-            "Image/TH_SHOPHOUSE V02.jpg", // Kitchen
-            "Image/TH_SHOPHOUSE V03.jpg" // Master Bedroom
-        ];
+        // --- Navbar Hide/Show on Scroll Logic ---
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
 
-        let currentShophouseDisplayIndex = 0; // Index in the DOM (including clones)
-        let autoPlayIntervalShophouse;
+            // Apply on all devices
+            // Added a check to ensure mainNavbar exists and has a height before proceeding
+            if (mainNavbar && mainNavbar.offsetHeight > 0) {
+                if (currentScrollY > lastScrollY && currentScrollY > mainNavbar.offsetHeight) {
+                    // Scrolling down and past the navbar height
+                    console.log('Scrolling Down - Hiding Navbar');
+                    mainNavbar.classList.add('navbar-hidden');
+                }
+                // Scrolling up
+                else if (currentScrollY < lastScrollY) {
+                    console.log('Scrolling Up - Showing Navbar');
+                    mainNavbar.classList.remove('navbar-hidden');
+                }
+            } else {
+                console.log('Navbar element not found or has no height.');
+            }
+            lastScrollY = currentScrollY;
+        });
 
-        // The carousel initialization and related functions for shophouse are not called here
-        // as this page only displays static cards.
 
-        // JavaScript for active navigation link highlighting (adapted for shophouse-details)
-        // This will now work with the dynamically generated nav links
+        // JavaScript for active navigation link highlighting (adapted for dongkao-details)
         function highlightActiveLink() {
             const currentPath = window.location.pathname.split('/').pop(); // Get current page filename
             navItemsData.forEach(item => {
-                const linkElement = navMenu.querySelector(`a[href="${item.href}"]`);
-                if (linkElement) {
-                    // Check if the link's href matches the current page or its section
+                // For desktop menu
+                const linkElementDesktop = navMenuDesktop.querySelector(`a[href="${item.href}"]`);
+                if (linkElementDesktop) {
                     const linkPath = item.href.split('#')[0].split('/').pop();
                     const linkHash = item.href.split('#')[1];
 
                     // Special handling for dongkao-details.html to highlight "OUR PROJECT"
                     if (currentPath === 'dongkao-details.html' && item.id === 'projects') {
-                        linkElement.parentElement.classList.add('active-link');
+                        linkElementDesktop.classList.add('active-link'); // Apply active-link to the 'a' tag
                     } else if (linkPath === currentPath) {
                         if (linkHash) {
-                            // For links with hashes, check if the section is in view
                             const section = document.getElementById(linkHash);
                             if (section && isElementInViewport(section)) {
-                                linkElement.parentElement.classList.add('active-link');
+                                linkElementDesktop.classList.add('active-link');
                             } else {
-                                linkElement.parentElement.classList.remove('active-link');
+                                linkElementDesktop.classList.remove('active-link');
                             }
                         } else {
-                            // For links without hashes (e.g., Home_Page.html), activate if it's the current page
-                            linkElement.parentElement.classList.add('active-link');
+                            linkElementDesktop.classList.add('active-link');
                         }
                     } else {
-                        linkElement.parentElement.classList.remove('active-link');
+                        linkElementDesktop.classList.remove('active-link');
+                    }
+                }
+
+                // For mobile menu (simple active state based on href)
+                const linkElementMobile = navMenuMobile.querySelector(`a[href="${item.href}"]`);
+                if (linkElementMobile) {
+                    if (currentPath === 'dongkao-details.html' && item.id === 'projects') {
+                        linkElementMobile.classList.add('text-[#3C0008]', 'font-bold'); // Highlight mobile link
+                    } else if (item.href.includes(currentPath)) {
+                        linkElementMobile.classList.add('text-[#3C0008]', 'font-bold');
+                    } else {
+                        linkElementMobile.classList.remove('text-[#3C0008]', 'font-bold');
                     }
                 }
             });
@@ -349,8 +451,11 @@
 
         // Call highlight function on scroll and load
         window.addEventListener('scroll', highlightActiveLink);
-        document.addEventListener('DOMContentLoaded', highlightActiveLink);
-
+        document.addEventListener('DOMContentLoaded', () => {
+            highlightActiveLink();
+            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+            renderNavItems();
+        });
     </script>
 </body>
 </html>

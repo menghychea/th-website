@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TH Residence - Link House Details</title>
-  
+
     <!-- Tailwind CSS CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts CDN link -->
@@ -14,43 +14,59 @@
     <!-- AOS CSS CDN link -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="linkhouse.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to global style.css for shared styles -->
 
-    
+
 </head>
-<body class="flex flex-col min-h-screen" style="padding-top: 72px;"> <!-- Added padding-top to account for fixed header -->
-    
+<body class="flex flex-col min-h-screen"> <!-- Removed inline padding-top, now handled by style.css -->
+
     <!-- Navbar - Copied from home.html -->
-    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50">
+    <nav class="bg-white p-4 shadow-md flex justify-between items-center flex-wrap fixed top-0 w-full z-50 md:justify-between">
         <div class="flex items-center space-x-2 p-2 rounded-md">
-            <img src="Image/profile.jpg" alt="Company Logo" class="h-10 w-10 rounded-full">
+            <img src="Image/Asset 1@3x.png" alt="Company Logo" class="h-10 w-10 rounded-full">
             <span class="text-2xl font-bold text-black">TH RESIDENCE</span>
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-black hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-2">
+            <button id="mobile-menu-button" class="text-black hover:text-[#3c0008] focus:outline-none focus:ring-2 focus:ring-[#3c0008] rounded-md p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
 
-        <!-- Desktop and Mobile Menu -->
-        <ul id="nav-menu" class="w-full md:w-auto md:flex md:space-x-8 mt-4 md:mt-0 hidden md:block">
+        <!-- Desktop Menu (always visible on md and larger) -->
+        <ul id="nav-menu-desktop" class="hidden md:flex md:space-x-8 mt-4 md:mt-0 flex-col md:flex-row">
             <!-- Nav items will be dynamically populated by JavaScript -->
         </ul>
     </nav>
 
-    <main class="flex-grow w-full py-8 bg-gray-100">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
+
+    <!-- Mobile Side Drawer Menu -->
+    <div id="nav-menu-mobile" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-4 flex justify-end">
+            <button id="mobile-menu-close-button" class="text-black hover:text-[#3c0008] focus:outline-none focus:ring-2 focus:ring-[#3c0008] rounded-md p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <ul class="flex flex-col p-4 space-y-2">
+            <!-- Mobile nav items will be dynamically populated by JavaScript -->
+        </ul>
+    </div>
+
+    <main class="flex-grow w-full bg-gray-100">
         <div class="max-w-7xl mx-auto px-4">
 
-            <section class="rounded-lg p-6 mb-12 text-center bg-white shadow-lg">
+            <section class="rounded-lg p-3 mb-12 text-center bg-white shadow-lg">
                 <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">LINK HOUSE | ផ្ទះលីង</h1>
-                
+
                 <!-- Land Size and House Size (Placeholder values) -->
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8 text-black text-lg font-medium mb-6">
                     <span class="whitespace-nowrap">ទំហំដី | Land Size: <span class="font-bold">5m x 20m</span></span>
                     <span class="whitespace-nowrap">ទំហំផ្ទះ | House Size: <span class="font-bold">5m x 12m</span></span>
                 </div>
-                
+
                 <!-- Linkhouse Main Image Carousel -->
                 <div class="carousel-container mb-8">
                     <div id="linkhouse-carousel" class="carousel-inner">
@@ -69,11 +85,11 @@
                     </div>
                 </div>
                 <!-- End Linkhouse Main Image Carousel -->
-                
-                <a href="https://momento360.com/e/uc/149c4e3a641b4775aac98516e3d1425b?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="inline-block bg-[#7E252C] text-white py-3 px-8 rounded-md hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold shadow-lg mt-4">View 3D Model</a>
+
+                <a href="https://momento360.com/e/uc/149c4e3a641b4775aac98516e3d1425b?utm_campaign=embed&utm_source=other&size=medium&display-plan=true" target="_blank" class="inline-block bg-[#7E252C] text-white py-3 px-8 rounded-md hover:bg-red-800 transition duration-300 ease-in-out text-xl font-semibold shadow-lg m-5">View 3D Model</a>
             </section>
 
-            <section class="mb-12 px-4 py-16 bg-gray-50 rounded-lg shadow-inner mt-8" data-aos="fade-up" data-aos-duration="1000">
+            <section class="mb-10 px-4 py-4 bg-gray-50 rounded-lg shadow-inner mt-8" data-aos="fade-up" data-aos-duration="1000">
                 <h2 class="text-3xl font-bold text-black mb-8 text-center">Floor Plans | ប្លង់ផ្ទះ</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="plan-image-container p-4">
@@ -91,9 +107,9 @@
                 </div>
             </section>
 
-            <section class="mb-12 px-4 py-16 bg-white rounded-lg shadow-lg mt-8" data-aos="fade-up" data-aos-duration="1000">
+            <section class="mb-10 px-4 py-4 bg-white rounded-lg shadow-lg mt-8" data-aos="fade-up" data-aos-duration="1000">
                 <h2 class="text-3xl font-bold text-black mb-8 text-center">Interior Spaces | បរិយាកាសខាងក្នុង</h2>
-                
+
                 <!-- Features (Bedroom, Bathroom, Storage) -->
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-x-8 gap-y-4 text-gray-700 text-lg mb-8">
                     <div class="flex items-center">
@@ -134,7 +150,7 @@
                     </div>
                 </div>
             </section>
-          
+
 
         </div>
     </main>
@@ -151,46 +167,44 @@
         <button id="next-image-button" class="modal-nav-button right"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <!-- ABOUT US Section -->
-    <section class="py-16 bg-white text-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
-            <h2 class="text-4xl font-bold mb-8 inline-block border-b-2 border-gray-800 pb-2 animate-fade-in-up">ABOUT US</h2>
+    <!-- ABOUT US Section - Updated to match Home_Page.html -->
+    <section id="about-us-section" class="bg-white text-black py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl mb-8 font-bold animate-fade-in-up">ABOUT US</h2>
             <div class="flex flex-col md:flex-row md:space-x-5 mb-10">
                 <!-- Left Column: Logo/Image and its Description -->
-                <div class="md:w-1/2 text-left animate-fade-in-up delay-200">
-                    <div class=" flex justify-start items-center overflow-hidden p-1" style="height: 200px;">
-                        <img src="Image/logo.png" alt="Company Logo" class="max-w-full max-h-full object-contain">
-                    </div>
+                <div class="md:w-1/2 text-left animate-fade-in-up delay-200 flex justify-start items-start mb-8 md:mb-0">
+                    <img src="Image/logo.png" alt="Company Logo" class="w-36 h-36 md:w-48 md:h-48 object-contain object-left">
                 </div>
 
                 <!-- Right Column: Main About Us text + Follow Us & Contact Us -->
                 <div class="md:w-1/2 text-left animate-fade-in-up delay-100">
-                    <p class="text-lg leading-relaxed mb-8">
+                    <p class="text-base leading-relaxed mb-8">
                         TH Residence is dedicated to providing exceptional living spaces and seamless property solutions. We believe in creating homes that offer comfort, elegance, and lasting value. Our commitment is to make your real estate journey easy, efficient, and rewarding.
                     </p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in-up delay-200">
                         <!-- Follow Us Card -->
-                        <div class="bg-white border-gray-100 text-left flex flex-col items-start">
+                        <div class="bg-white border-gray-100 text-left flex flex-col items-start ">
                             <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">FOLLOW US</h3>
                             <div class="flex justify-start space-x-6 mt-2">
                                 <a href="https://www.facebook.com/THresidences" target="_blank" aria-label="Facebook" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-facebook text-3xl"></i>
+                                    <i class="fa-brands fa-facebook text-2xl"></i>
                                 </a>
                                 <a href="https://t.me/THResidence" target="_blank" aria-label="Telegram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-telegram text-3xl"></i>
+                                    <i class="fa-brands fa-telegram text-2xl"></i>
                                 </a>
                                 <a href="https://www.instagram.com/thresidences/" target="_blank" aria-label="Instagram" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-instagram text-3xl"></i>
+                                    <i class="fa-brands fa-instagram text-2xl"></i>
                                 </a>
                                 <a href="https://www.tiktok.com/@thresidence?lang=en" target="_blank" aria-label="TikTok" class="text-gray-600 hover:text-[#3c0008] transition duration-300">
-                                    <i class="fa-brands fa-tiktok text-3xl"></i>
+                                    <i class="fa-brands fa-tiktok text-2xl"></i>
                                 </a>
                             </div>
                         </div>
-                    
+
                         <!-- Contact Us (Email & General) Card -->
-                        <div class="bg-white  border-gray-100 text-left flex flex-col items-start">
+                        <div class="bg-white border-gray-100 text-left flex flex-col items-start ">
                             <h3 class="text-xl font-bold text-gray-800 mb-3 pb-2 border-b border-gray-200 w-full">CONTACT US</h3>
                             <p class="text-gray-700 text-sm leading-normal flex items-start">
                                 <i class="fa-solid fa-envelope text-gray-500 mr-3 mt-1"></i>
@@ -200,7 +214,7 @@
                                 <i class="fa-solid fa-phone text-gray-500 mr-3"></i>
                                 <a href="tel:+85598765432" class="text-gray-700 hover:text-[#3c0008] transition duration-300"> 087 211 122</a>
                             </p>
-                            <p class="text-gray-700 text-xs leading-normal flex items-start mt-2">
+                            <p class="text-gray-700 text-sm leading-normal flex items-start mt-2">
                                 <i class="fa-solid fa-location-dot text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
                                 <a href="https://www.google.com/maps/search/?api=1&query=No.+1094,+Sola+Street+(371),+Phum+Trea,+Sangkat+Steung+Meanchey,+Phnom+Penh,+Cambodia" target="_blank" class="text-gray-700 hover:text-[#3c0008] transition duration-300 flex-grow"> Sola Street ( 371 ), Phum Trea,<br>Sangkat Steung Meanchey, Phnom Penh, Cambodia</a>
                             </p>
@@ -210,105 +224,194 @@
             </div>
 
             <!-- Email Subscription -->
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400">
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12 animate-fade-in-up delay-400 px-4">
                 <input type="email" placeholder="Enter your email address" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 placeholder-gray-500">
-                <button class="bg-[#3c0008] hover:text-[#3c0008] text-center py-2 px-4 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                <button class="w-full sm:w-auto bg-[#3c0008] hover:text-[#3c0008] text-center py-3 px-6 rounded-md hover:bg-[#F5EFEB] text-white transition-colors duration-300 ease-in-out transform hover:scale-105 font-semibold">
                     Subscribe
                 </button>
             </div>
         </div>
-         <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-            &copy; <span id="current-year-footer"></span> TH Residence. All rights reserved.
+    </section>
+
+    <!-- LOCATION Section (Copied from Home_Page.html for consistency) -->
+    <section class="py-10 bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold animate-fade-in-up">LOCATION</h2>
+            <p class="max-w-4xl mx-auto text-base leading-relaxed text-center mb-10 animate-fade-in-up delay-100">
+                Find us easily at our project site in Dong Kao I, Phnom Penh.
+            </p>
+
+            <div class="relative w-full h-72 md:h-96 rounded-lg overflow-hidden shadow-xl animate-fade-in-up delay-200 map-container">
+                <!-- Google Maps Embed (replace with your actual embed code for precise location) -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3853.6167907627287!2d104.85615751049326!3d11.507753245231775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109518124b3895b%3A0xaa92d9552d0aa78e!2sTH%20Residence%20Dangkoa%20I!5e1!3m2!1sen!2skh!4v1753342985010!5m2!1sen!2skh"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
+    </section>
+
+    <footer class="bg-gray-100 text-[#3C0008] py-8 text-center text-sm">
+        <p>&copy; <span id="current-year-footer"></span> TH Residence. All rights reserved.</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>
+        // Initialize AOS
+        AOS.init();
 
-       
-
-        // Dynamically set the current year in the footer
-        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
-        AOS.init(); // Initialize AOS
-
-        // --- Navbar Logic - Copied from home.html ---
+        // --- Navbar Logic - Copied and adapted from Home_Page.html ---
         const navItemsData = [
-            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
-            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#our-project-section' },
-            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'index.html#about-us-section' },
-            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#media' },
+            { id: 'home', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>', text: 'HOME', href: 'Home_Page.html' },
+            { id: 'projects', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9.5 16h5"/><path d="M9.5 12h5"/><path d="M9.5 8h5"/></svg>', text: 'OUR PROJECT', href: 'Home_Page.html#properties-section' },
+            { id: 'about', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>', text: 'ABOUT US', href: 'Home_Page.html#about-us-section' },
+            { id: 'media', iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>', text: 'MEDIA', href: 'Home_Page.html#th-group-section' },
         ];
 
-        const navMenu = document.getElementById('nav-menu');
+        const navMenuDesktop = document.getElementById('nav-menu-desktop');
+        const navMenuMobile = document.getElementById('nav-menu-mobile');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
         // Function to render navigation items
         function renderNavItems() {
-            navMenu.innerHTML = ''; // Clear existing items
+            // Clear existing items for both menus
+            navMenuDesktop.innerHTML = '';
+            navMenuMobile.querySelector('ul').innerHTML = ''; // Select the ul inside the mobile menu
+
+            const isMobileView = window.innerWidth < 768;
+
             navItemsData.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'relative group p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100';
+                // Create desktop list item
+                const liDesktop = document.createElement('li');
+                liDesktop.className = 'relative p-2 rounded-md transition-all duration-300 ease-in-out hover:bg-gray-100 flex items-center justify-center min-w-[150px] h-[40px]';
 
-                const a = document.createElement('a');
-                a.href = item.href; // Use item.href for navigation
-                a.className = 'flex items-center justify-center text-gray-700 font-semibold hover:text-[#3c0008] transition-colors duration-300 ease-in-out'; // Changed hover color
+                const aDesktop = document.createElement('a');
+                aDesktop.href = item.href;
+                aDesktop.className = 'nav-item-link relative flex items-center justify-center text-black font-semibold hover:text-[#3C0008] transition-colors duration-300 ease-in-out w-full h-full';
 
-                const iconSpan = document.createElement('span');
-                iconSpan.className = 'icon-24 transition-transform duration-300 ease-in-out';
-                iconSpan.innerHTML = item.iconSvg; // Set innerHTML for SVG
+                const iconWrapperDesktop = document.createElement('span');
+                iconWrapperDesktop.className = `nav-item-icon-wrapper transition-opacity duration-300 ease-in-out`;
+                const iconSpanDesktop = document.createElement('span');
+                iconSpanDesktop.className = 'icon-24';
+                iconSpanDesktop.innerHTML = item.iconSvg;
+                iconWrapperDesktop.appendChild(iconSpanDesktop);
 
-                const textSpan = document.createElement('span');
-                textSpan.className = 'text-lg hidden'; // Initially hidden
-                textSpan.textContent = item.text;
+                const textWrapperDesktop = document.createElement('span');
+                textWrapperDesktop.className = `nav-item-text-wrapper transition-opacity duration-300 ease-in-out`;
+                const textSpanDesktop = document.createElement('span');
+                textSpanDesktop.className = 'text-lg';
+                textSpanDesktop.textContent = item.text;
+                textWrapperDesktop.appendChild(textSpanDesktop);
 
-                a.appendChild(iconSpan);
-                a.appendChild(textSpan);
-                li.appendChild(a);
+                aDesktop.appendChild(iconWrapperDesktop);
+                aDesktop.appendChild(textWrapperDesktop);
+                liDesktop.appendChild(aDesktop);
 
-                // Add hover/click effect
-                li.addEventListener('mouseenter', () => {
-                    iconSpan.classList.add('hidden');
-                    textSpan.classList.remove('hidden');
+                // Initial state for desktop: show icon, hide text
+                iconWrapperDesktop.classList.add('opacity-100');
+                textWrapperDesktop.classList.add('opacity-0', 'pointer-events-none');
+
+
+                // Desktop hover effect
+                liDesktop.addEventListener('mouseenter', () => {
+                    iconWrapperDesktop.classList.remove('opacity-100');
+                    iconWrapperDesktop.classList.add('opacity-0');
+                    textWrapperDesktop.classList.remove('opacity-0', 'pointer-events-none');
+                    textWrapperDesktop.classList.add('opacity-100');
                 });
-                li.addEventListener('mouseleave', () => {
-                    iconSpan.classList.remove('hidden');
-                    textSpan.classList.add('hidden');
+                liDesktop.addEventListener('mouseleave', () => {
+                    iconWrapperDesktop.classList.remove('opacity-0');
+                    iconWrapperDesktop.classList.add('opacity-100');
+                    textWrapperDesktop.classList.remove('opacity-100');
+                    textWrapperDesktop.classList.add('opacity-0', 'pointer-events-none');
                 });
+                navMenuDesktop.appendChild(liDesktop);
 
-                // Underline effect for active page (optional, for current page highlighting)
-                // This logic needs to be more robust for multi-page sites,
-                // but for now, we can highlight 'home' if on index.html
-                if (window.location.pathname.includes(item.href.split('#')[0]) && item.href.split('#')[0] !== '') {
-                     const underline = document.createElement('div');
-                     underline.className = 'absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#3c0008] rounded-full';
-                     li.appendChild(underline);
+
+                // Create mobile list item
+                const liMobile = document.createElement('li');
+                liMobile.className = 'p-3 hover:bg-gray-100 rounded-md transition-colors duration-200 ease-in-out'; // Simpler styling for mobile
+                const aMobile = document.createElement('a');
+                aMobile.href = item.href;
+                aMobile.className = 'flex items-center space-x-4 text-black font-semibold text-lg hover:text-[#3C0008]'; // Always show text on mobile menu
+
+                const iconMobile = document.createElement('span');
+                iconMobile.className = 'icon-24';
+                iconMobile.innerHTML = item.iconSvg;
+                aMobile.appendChild(iconMobile);
+
+                const textMobile = document.createElement('span');
+                textMobile.textContent = item.text;
+                aMobile.appendChild(textMobile);
+
+                liMobile.appendChild(aMobile);
+                navMenuMobile.querySelector('ul').appendChild(liMobile);
+
+                // On mobile, clicking a nav item should close the menu
+                if (isMobileView) {
+                    liMobile.addEventListener('click', () => {
+                        closeMobileMenu();
+                    });
                 }
-
-
-                navMenu.appendChild(li);
             });
         }
 
+        // Function to open mobile menu
+        function openMobileMenu() {
+            navMenuMobile.classList.remove('translate-x-full');
+            navMenuMobile.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => mobileMenuOverlay.classList.remove('opacity-0'), 10); // Delay for transition
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling body when menu is open
+        }
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+            navMenuMobile.classList.remove('translate-x-0');
+            navMenuMobile.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('opacity-0');
+            mobileMenuOverlay.addEventListener('transitionend', function handler() {
+                mobileMenuOverlay.classList.add('hidden');
+                mobileMenuOverlay.removeEventListener('transitionend', handler);
+            });
+            document.body.classList.remove('overflow-hidden'); // Allow body scrolling
+        }
+
         // Toggle mobile menu
-        mobileMenuButton.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-            navMenu.classList.toggle('block');
-        });
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking overlay
 
-        // Initial render of nav items
-        document.addEventListener('DOMContentLoaded', () => {
+        // Listen for resize events to adjust nav item rendering and menu state
+        window.addEventListener('resize', () => {
             renderNavItems();
+            if (window.innerWidth >= 768) {
+                closeMobileMenu(); // Ensure mobile menu is closed on desktop view
+            }
         });
 
+        // --- Linkhouse Main Carousel Logic ---
+        // Declare carousel elements globally or ensure they are passed/accessed correctly
+        let linkhouseCarousel;
+        let linkhouseIndicatorsContainer;
+        let linkhousePrevButton;
+        let linkhouseNextButton;
 
-        // --- Linkhouse Main Carousel Logic --- 
         const linkhouseImages = [
-            "Image/LINK HOUSE_EVENING_VIEW055.jpg", 
-            "Image/TH_LINK HOUSE V04.jpg", 
-            "Image/TH_LINK HOUSE V03.jpg", 
-            "Image/TH_LINK HOUSE V05.jpg" 
+            "Image/LINK HOUSE_EVENING_VIEW055.jpg",
+            "Image/TH_LINK HOUSE V04.jpg",
+            "Image/TH_LINK HOUSE V03.jpg",
+            "Image/TH_LINK HOUSE V05.jpg"
         ];
 
-        let currentLinkhouseDisplayIndex = 0; 
+        let currentLinkhouseDisplayIndex = 0;
         let autoPlayIntervalLinkhouse;
 
         function initializeLinkhouseCarousel() {
@@ -322,36 +425,36 @@
                 return;
             }
 
-            linkhouseCarousel.innerHTML = ''; 
-            linkhouseIndicatorsContainer.innerHTML = ''; 
+            linkhouseCarousel.innerHTML = '';
+            linkhouseIndicatorsContainer.innerHTML = '';
 
             const linkhouseCarouselSlides = [
-                linkhouseImages[linkhouseImages.length - 1], 
-                ...linkhouseImages, 
-                linkhouseImages[0] 
+                linkhouseImages[linkhouseImages.length - 1],
+                ...linkhouseImages,
+                linkhouseImages[0]
             ];
 
             linkhouseCarouselSlides.forEach((src, index) => {
                 const img = document.createElement('img');
-                img.src = src; // No basename needed as images are relative to the HTML file
+                img.src = src;
                 img.alt = `Linkhouse Image ${index + 1}`;
-                img.classList.add('carousel-slide', 'clickable-image'); 
-                img.setAttribute('data-fullsrc', src); // No basename needed here
+                img.classList.add('carousel-slide', 'clickable-image');
+                img.setAttribute('data-fullsrc', src);
                 linkhouseCarousel.appendChild(img);
             });
 
             linkhouseImages.forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('indicator-dot');
-                dot.addEventListener('click', () => { 
-                    showLinkhouseSlide(index + 1); 
-                    resetAutoPlayLinkhouse(); 
+                dot.addEventListener('click', () => {
+                    showLinkhouseSlide(index + 1);
+                    resetAutoPlayLinkhouse();
                 });
                 linkhouseIndicatorsContainer.appendChild(dot);
             });
 
-            currentLinkhouseDisplayIndex = 1; 
-            showLinkhouseSlide(currentLinkhouseDisplayIndex, false); 
+            currentLinkhouseDisplayIndex = 1;
+            showLinkhouseSlide(currentLinkhouseDisplayIndex, false);
             startAutoPlayLinkhouse();
 
             linkhouseNextButton.addEventListener('click', nextLinkhouseSlide);
@@ -365,27 +468,27 @@
             }
 
             const totalOriginalSlides = linkhouseImages.length;
-            const displaySlidesCount = totalOriginalSlides + 2; 
+            const displaySlidesCount = totalOriginalSlides + 2;
 
             linkhouseCarousel.style.transition = smoothTransition ? 'transform 0.5s ease-in-out' : 'none';
             linkhouseCarousel.style.transform = `translateX(-${index * 100}%)`;
             currentLinkhouseDisplayIndex = index;
 
-            if (linkhouseIndicatorsContainer) { 
-                let originalIndex = (index - 1 + totalOriginalSlides) % totalOriginalSlides; 
+            if (linkhouseIndicatorsContainer) {
+                let originalIndex = (index - 1 + totalOriginalSlides) % totalOriginalSlides;
                 Array.from(linkhouseIndicatorsContainer.children).forEach((dot, i) => {
                     dot.classList.toggle('active', i === originalIndex);
                 });
             }
 
-            if (index === displaySlidesCount - 1) { 
+            if (index === displaySlidesCount - 1) {
                 setTimeout(() => {
-                    showLinkhouseSlide(1, false); 
-                }, 500); 
-            } else if (index === 0) { 
+                    showLinkhouseSlide(1, false);
+                }, 500);
+            } else if (index === 0) {
                 setTimeout(() => {
-                    showLinkhouseSlide(totalOriginalSlides, false); 
-                }, 500); 
+                    showLinkhouseSlide(totalOriginalSlides, false);
+                }, 500);
             }
         }
 
@@ -400,10 +503,10 @@
         }
 
         function startAutoPlayLinkhouse() {
-            stopAutoPlayLinkhouse(); 
+            stopAutoPlayLinkhouse();
             autoPlayIntervalLinkhouse = setInterval(() => {
                 showLinkhouseSlide(currentLinkhouseDisplayIndex + 1);
-            }, 5000); 
+            }, 5000);
         }
 
         function stopAutoPlayLinkhouse() {
@@ -420,8 +523,8 @@
         const modalImage = document.getElementById('modal-image');
         const prevButton = document.getElementById('prev-image-button');
         const nextButton = document.getElementById('next-image-button');
-        
-        const clickableImages = document.querySelectorAll('.clickable-image'); 
+
+        const clickableImages = document.querySelectorAll('.clickable-image');
 
         let currentImageGroup = [];
         let currentImageIndex = 0;
@@ -442,9 +545,9 @@
                 let clickedImageSrc = this.getAttribute('data-fullsrc') || this.src;
 
                 // Determine the group of images based on parent container
-                if (this.closest('#linkhouse-carousel')) { 
+                if (this.closest('#linkhouse-carousel')) {
                     groupImages = linkhouseImages.map(src => src); // Use raw paths for carousel images
-                } 
+                }
                 else if (this.closest('.interior-image-container')) {
                     groupImages = Array.from(document.querySelectorAll('.interior-image-container .clickable-image')).map(img => img.getAttribute('data-fullsrc') || img.src);
                 }
@@ -452,43 +555,43 @@
                     groupImages = Array.from(document.querySelectorAll('.plan-image-container .clickable-image')).map(img => img.getAttribute('data-fullsrc') || img.src);
                 }
                 else {
-                    groupImages = [clickedImageSrc]; 
+                    groupImages = [clickedImageSrc];
                 }
-                
+
                 currentImageGroup = groupImages;
                 currentImageIndex = currentImageGroup.indexOf(clickedImageSrc);
 
                 if (currentImageGroup.length > 0) {
                     showImageInModal(currentImageIndex);
                     imageModal.classList.add('open');
-                    document.body.classList.add('modal-open'); 
+                    document.body.classList.add('modal-open');
                 }
             });
         });
 
         prevButton.addEventListener('click', (event) => {
-            event.stopPropagation(); 
-            if (currentImageGroup.length > 1) { 
+            event.stopPropagation();
+            if (currentImageGroup.length > 1) {
                 const prevIndex = (currentImageIndex - 1 + currentImageGroup.length) % currentImageGroup.length;
                 showImageInModal(prevIndex);
             }
         });
 
         nextButton.addEventListener('click', (event) => {
-            event.stopPropagation(); 
-            if (currentImageGroup.length > 1) { 
+            event.stopPropagation();
+            if (currentImageGroup.length > 1) {
                 const nextIndex = (currentImageIndex + 1) % currentImageGroup.length;
                 showImageInModal(nextIndex);
             }
         });
 
         imageModal.addEventListener('click', function(event) {
-            if (event.target === imageModal) { 
+            if (event.target === imageModal) {
                 imageModal.classList.remove('open');
-                document.body.classList.remove('modal-open'); 
-                modalImage.src = ''; 
-                currentImageGroup = []; 
-                currentImageIndex = 0; 
+                document.body.classList.remove('modal-open');
+                modalImage.src = '';
+                currentImageGroup = [];
+                currentImageIndex = 0;
             }
         });
 
@@ -505,7 +608,65 @@
         // Initialize Linkhouse Carousel when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
             initializeLinkhouseCarousel();
+            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+            renderNavItems(); // Render nav items on load
+            highlightActiveLink(); // Highlight active link on load
         });
+
+        // JavaScript for active navigation link highlighting
+        function highlightActiveLink() {
+            const currentPath = window.location.pathname.split('/').pop(); // Get current page filename
+            navItemsData.forEach(item => {
+                // For desktop menu
+                const linkElementDesktop = navMenuDesktop.querySelector(`a[href="${item.href}"]`);
+                if (linkElementDesktop) {
+                    const linkPath = item.href.split('#')[0].split('/').pop();
+                    const linkHash = item.href.split('#')[1];
+
+                    // Special handling for linkhouse-details.html to highlight "OUR PROJECT"
+                    if (currentPath === 'Linkhouse-details.html' && item.id === 'projects') {
+                        linkElementDesktop.classList.add('active-link'); // Apply active-link to the 'a' tag
+                    } else if (linkPath === currentPath) {
+                        if (linkHash) {
+                            const section = document.getElementById(linkHash);
+                            if (section && isElementInViewport(section)) {
+                                linkElementDesktop.classList.add('active-link');
+                            } else {
+                                linkElementDesktop.classList.remove('active-link');
+                            }
+                        } else {
+                            linkElementDesktop.classList.add('active-link');
+                        }
+                    } else {
+                        linkElementDesktop.classList.remove('active-link');
+                    }
+                }
+
+                // For mobile menu (simple active state based on href)
+                const linkElementMobile = navMenuMobile.querySelector(`a[href="${item.href}"]`);
+                if (linkElementMobile) {
+                    if (currentPath === 'Linkhouse-details.html' && item.id === 'projects') {
+                        linkElementMobile.classList.add('text-[#3C0008]', 'font-bold'); // Highlight mobile link
+                    } else if (item.href.includes(currentPath)) {
+                        linkElementMobile.classList.add('text-[#3C0008]', 'font-bold');
+                    } else {
+                        linkElementMobile.classList.remove('text-[#3C0008]', 'font-bold');
+                    }
+                }
+            });
+        }
+
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        window.addEventListener('scroll', highlightActiveLink);
     </script>
 </body>
 </html>

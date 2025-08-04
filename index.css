@@ -1,94 +1,232 @@
-/* index.css */
+/* style.css */
 
 /* Ensure Google Fonts are imported */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Kantumruy+Pro:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Keep Playfair for splash title */
+@import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;700&display=swap)');
+@import url('[https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap)');
 
 
-/* Define custom fonts and animations */
+/* New Top Section Height */
+.top-section-height {
+    height: calc(80vh - 50px); /* Same height as slider on mobile */
+}
+
+@media (min-width: 800px) {
+    .top-section-height {
+        height: calc(100vh - 50px); /* Same height as slider on desktop */
+    }
+}
+
+/* Custom CSS for fade-in animation and smooth transitions */
 body {
     font-family: 'Avenir', 'Kantumruy Pro','kulankoulen', sans-serif;
-    overflow: hidden; /* Prevent scrolling on the splash screen */
-}
-.font-playfair { font-family: 'Playfair Display', serif; }
-.font-khmer { font-family: 'Kantumruy Pro', sans-serif; }
-
-/* General purpose fade-out animation */
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    background-color: #f3f4f6;
+    /* Adjusted padding-top to account for the navbar's height and its potential movement */
+    padding-top: 80px; /* py-5 (20px top/bottom) + h-10 (40px) = 80px */
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll for the main body */
+    scroll-padding-top: 80px; /* Ensures content isn't hidden by the fixed header when scrolling to an ID */
 }
 
-/* Styles for the logo wrapper (now primarily for containing the image and being covered by shapes) */
-.logo-wrapper {
-    position: relative; /* For z-index and containing the image */
-    border-radius: 9999px;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0); /* No initial shadow */
-    z-index: 5; /* Below the reveal shapes */
+/* Class to hide the navbar by sliding it up */
+.navbar-hidden {
+    transform: translateY(-100%) !important; /* Added !important to ensure precedence */
 }
 
-/* Styles for the reveal shapes */
-.reveal-shape {
-    position: absolute;
+
+/* Full page background image with blur */
+body::before {
+    content: '';
+    position: fixed;
     top: 0;
-    width: 50%; /* Each covers half the width of the container */
-    height: 100%; /* Covers full height of container */
-    background-color: #3C0008; /* Dark background color for the shapes */
-    z-index: 10; /* Above the logo */
-    transition: transform 1s ease-out; /* For smooth sliding */
-}
-
-.reveal-left {
     left: 0;
-    transform: translateX(0);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    z-index: -1;
 }
 
-.reveal-right {
-    right: 0;
-    transform: translateX(0);
+/* Hide scrollbar for a cleaner look, but still allow scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-/* Keyframe animations for sliding out the shapes */
-@keyframes slideOutLeft {
-    to { transform: translateX(-100%); }
+/* Styles for the main header image carousel container */
+.full-screen-slider {
+    position: relative;
+    width: 100%;
+    /* On mobile, adjust height to be more manageable */
+    height: calc(80vh - 72px); /* Example: 80% of viewport height minus navbar */
+    overflow: hidden;
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .full-screen-slider {
+        height: calc(100vh - 72px); /* Full viewport height minus navbar on desktop */
+    }
 }
 
-@keyframes slideOutRight {
-    to { transform: translateX(100%); }
+
+/* Keyframe animation for subtle zoom */
+@keyframes subtleZoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-/* Keyframe animation for logo reveal (fade in and scale) */
-@keyframes logoFadeInScale {
-    0% { opacity: 0; transform: scale(0.5); }
-    100% { opacity: 1; transform: scale(1); }
+/* Styles for the clear image layer */
+.full-screen-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease-in-out;
+    animation: none;
 }
 
-/* Initial state for the image */
-#animated-logo-image {
-    opacity: 0; /* Start hidden */
-    transform: scale(0.5); /* Start smaller */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for logo */
-    object-fit: cover; /* Ensures the image fills the circular container */
-    border-radius: 50%; /* Explicitly make the image itself circular */
+/* Added a class for the specific min-width of the cards in the horizontal scroll */
+/* Adjusted min-width for better mobile experience, allowing more cards to show */
+.property-card {
+    flex-shrink: 0; /* Ensures cards don't shrink */
+    width: 85vw; /* Make cards take up 85% of viewport width on mobile */
+    max-width: 350px; /* Limit max width for consistency on slightly larger mobiles */
 }
 
-/* Typing animation specific styles */
-#logo-text {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow during typing */
-    border-right: .15em solid transparent; /* Start with transparent border */
-    font-family: 'Inter', 'Kantumruy Pro', sans-serif; /* Standardized font stack */
-    display: inline-block; /* Essential for width-based typing effect */
-    opacity: 0; /* Hidden by default, will be made visible by JS */
-    transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition for opacity and color */
-    z-index: 15; /* Above shapes and logo */
+@media (min-width: 640px) { /* sm breakpoint */
+    .property-card {
+        width: calc(50vw - 2rem); /* Two cards with some gap on small tablets */
+    }
 }
-.typing-cursor {
-    border-color: white; /* Show cursor */
-    animation: blink-caret .75s step-end infinite; /* Blinking cursor */
+
+@media (min-width: 768px) { /* md breakpoint */
+    .property-card {
+        width: auto; /* Let Tailwind's grid control width on desktop */
+        max-width: none;
+    }
 }
-/* Keyframes for blinking caret */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: white; }
+
+
+/* Project Dongkoa background styling (kept as is if needed, but not directly used for OUR PROJECT section) */
+.project-dongkoa-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background-color: #3C0008;
+}
+
+/* Styling for the 'More Details' button as an anchor tag */
+.more-details-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Social media icon styling for footer (re-purposed for About Us section) */
+/* Kept general styling for consistency */
+.social-icon {
+    color: #f3f4f6;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.social-icon:hover {
+    transform: scale(1.1);
+    color: #7E252C;
+}
+
+/* Footer links (not explicitly used in the provided HTML for footer) */
+.footer-link {
+    color: #d1d5db;
+    transition: color 0.2s ease-in-out;
+}
+.footer-link:hover {
+    color: #ffffff;
+}
+
+/* Responsive iframe for Google Map */
+.map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    height: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 0;
+}
+
+/* Custom CSS for fade-in animation and smooth transitions */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Text shadow for better readability on images */
+.text-shadow-lg {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Lucide icons are SVG, so we'll use inline SVG for them */
+.icon-24 {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+}
+.group:hover .icon-24 {
+    transform: scale(1.1);
+}
+
+
+
+/* Custom styling for horizontal scroll on small screens */
+.project-scroll-container {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory; /* Enable scroll snapping for horizontal scroll */
+}
+.project-scroll-container::-webkit-scrollbar {
+    display: none;
 }
