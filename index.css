@@ -1,8 +1,8 @@
 /* style.css */
 
 /* Ensure Google Fonts are imported */
-@import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;700&display=swap)');
-@import url('[https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap)');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap');
 
 
 /* New Top Section Height */
@@ -156,9 +156,8 @@ body::before {
 /* Responsive iframe for Google Map */
 .map-container {
     overflow: hidden;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    /* Removed padding-bottom and height: 0; to allow Tailwind h-* classes to control height */
     position: relative;
-    height: 0;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
